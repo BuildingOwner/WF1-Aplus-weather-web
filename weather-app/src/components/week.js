@@ -1,13 +1,11 @@
 import axios from "axios";
-
-const API_KEY =
-  "kBh2w8EFuGTQaSF%2B%2BEz778m7MKFahDXOcOENF6SBaT82ElY8sEzbx13hFtLTgLD5uEUS0ZUWheRYLWE5bZfaGw%3D%3D";
+import WEEK_API_KYE from "../private/key";
 
 function Week() {
   const url =
     "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst"; /*URL*/
   let queryParams =
-    "?" + encodeURIComponent("serviceKey") + "=" + API_KEY; /*Service Key*/
+    "?" + encodeURIComponent("serviceKey") + "=" + WEEK_API_KYE; /*Service Key*/
   queryParams +=
     "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1"); /**/
   queryParams +=
