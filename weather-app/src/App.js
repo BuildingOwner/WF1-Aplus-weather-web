@@ -4,7 +4,7 @@ import Week from "./components/week";
 function App() {
   return (
     <div className="App">
-      <Week />
+      <Week location="11B10101" />
     </div>
   );
 }
