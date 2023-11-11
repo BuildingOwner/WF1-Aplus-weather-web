@@ -1,0 +1,7 @@
+.week{
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 20px;
+  align-items: center;
+  justify-items: center;
+}

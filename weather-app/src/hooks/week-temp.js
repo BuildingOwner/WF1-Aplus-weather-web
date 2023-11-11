@@ -33,7 +33,7 @@ export const useWeekTemp =  (location) => {
     "&" +
     encodeURIComponent("regId") +
     "=" +
-    encodeURIComponent("11B10101"); /**/
+    encodeURIComponent(location); /**/
   queryParams +=
     "&" +
     encodeURIComponent("tmFc") +
@@ -44,7 +44,6 @@ export const useWeekTemp =  (location) => {
     const fetchData = async () => {
       try {
         const result = await axios.get(url + queryParams);
-        console.log(result);
         let temp = [];
         for (let i = 0; i < 8; i++) {
           const maxKey = `taMax${i + 3}`;
@@ -58,6 +57,7 @@ export const useWeekTemp =  (location) => {
         setWeather(temp);
       } catch (error) {
         console.log("에러 " + error);
+        return null
       }
     };
     fetchData();
