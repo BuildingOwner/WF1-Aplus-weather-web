@@ -9,9 +9,9 @@ export const useWeekTemp = (location) => {
   const year = now.getFullYear();
   const month = String(now.getMonth() + 1).padStart(2, "0");
   let day = String(now.getDate()).padStart(2, "0");
-  const hour = now.getHours()
-  if(hour<6){
-    day=String(now.getDate()-1).padStart(2, "0");
+  const hour = now.getHours();
+  if (hour < 6) {
+    day = String(now.getDate() - 1).padStart(2, "0");
   }
   const formattedDate = `${year}${month}${day}`;
 
@@ -22,10 +22,7 @@ export const useWeekTemp = (location) => {
   queryParams +=
     "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1"); /**/
   queryParams +=
-    "&" +
-    encodeURIComponent("numOfRows") +
-    "=" +
-    encodeURIComponent("10"); /**/
+    "&" + encodeURIComponent("numOfRows") + "=" + encodeURIComponent("10"); /**/
   queryParams +=
     "&" +
     encodeURIComponent("dataType") +
@@ -58,8 +55,8 @@ export const useWeekTemp = (location) => {
 
         setWeather(temp);
       })
-      .catch((error) => console.log('에러 '+error));
-  },[location]);
+      .catch((error) => console.log("에러 " + error));
+  }, [location]);
 
   return { temps };
 };
