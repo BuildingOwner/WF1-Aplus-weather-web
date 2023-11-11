@@ -1,21 +1,29 @@
-import '../css/weather-item.css'
+import "../css/weather-item.css";
+
+const cloudIcon = {
+  맑음: "bi-sun",
+  흐림: "bi-cloud",
+  구름많음: "bi-clouds",
+  흐리고비: "bi-cloud-rain",
+};
 
 const WeekWeather = ({ days, temp, rainRate, cloud }) => {
   const now = new Date();
   const month = String(now.getMonth() + 1).padStart(2, "0");
-  let day = String(now.getDate()+days).padStart(2, "0");
+  let day = String(now.getDate() + days).padStart(2, "0");
   const hour = now.getHours();
   if (hour < 6) {
-    day = String(now.getDate() - 1).padStart(2, "0");
+    day = String(now.getDate() + days - 1).padStart(2, "0");
   }
 
   if (!cloud && !rainRate && !temp) return <div></div>;
 
-  let cloudy;
+  let cloudy = [];
   if (cloud && cloud.cloud == undefined) {
-    cloudy = `${cloud.am} / ${cloud.pm}`;
+    cloudy.push(cloud.am);
+    cloudy.push(cloud.pm);
   } else {
-    cloudy = cloud.cloud;
+    cloudy.push(cloud.cloud);
   }
 
   let rain;
@@ -31,13 +39,19 @@ const WeekWeather = ({ days, temp, rainRate, cloud }) => {
         <span>
           {month}. {day}
         </span>
-        <span> {cloudy}</span>
+        <span>
+          {cloudy.map((cloudStr, idx) => {
+            return <i key={idx} className={`bi ${cloudIcon[cloudStr]}`}></i>;
+          })}
+        </span>
       </div>
       <div>
-        <span>{rain}</span>
         <span>
-          {" "}
-          {temp.min} / {temp.max}
+          <i className="bi bi-thermometer"></i>{temp.min} / 
+          <i className="bi bi-thermometer-high"></i>{temp.max}
+        </span>
+        <span>
+          <i className="bi bi-droplet"></i> {rain}
         </span>
       </div>
     </div>

@@ -1,33 +1,68 @@
+import "../css/week.css";
+import { useState, useEffect } from "react";
 import { useWeekTemp } from "../hooks/week-temp";
 import { useWeekCloud } from "../hooks/week-cloud";
 import WeekWeather from "./weekWeather";
 
-const Week = () => {
-  const { temps } = useWeekTemp("11B10101");
-  const { rainRate, cloud } = useWeekCloud("11B00000");
+const Week = ({ location }) => {
+  const [tempCode, setTempCode] = useState(null);
+  const [weatherCode, setWeatherCode] = useState(null);
+  const [cityName, setCityName] = useState(null);
 
-  const data = { temps: temps, rainRate: rainRate, cloud: cloud };
-  if (temps.length == 0 || rainRate.length == 0 || cloud.length == 0)
+  useEffect(() => {
+    fetch("/data/temp-code.json")
+      .then((response) => response.json())
+      .then((data) => {
+        setTempCode(data);
+        let cityName = location
+          .split(" ")[1]
+          .replace("특별시", "")
+          .replace("광역시", "")
+          .replace("시", "")
+          .replace("특별자치도", "")
+          .replace("특별자치시", "");
+        setCityName(cityName);
+      });
+  }, [location]);
+
+  useEffect(() => {
+    fetch("/data/weather-code.json")
+      .then((response) => response.json())
+      .then((data) => {
+        setWeatherCode(data);
+      });
+  }, [location]);
+
+  const { temps } = useWeekTemp(
+    cityName && tempCode ? tempCode[cityName] : null
+  );
+  const { rainRate, cloud } = useWeekCloud(
+    cityName && weatherCode ? weatherCode[cityName] : null
+  );
+
+  if (
+    !temps ||
+    !rainRate ||
+    !cloud ||
+    temps.length === 0 ||
+    rainRate.length === 0 ||
+    cloud.length === 0
+  )
     return <div className="week"></div>;
 
-  let weather = [];
-
-  for (let i = 0; i < data.temps.length; i++) {
-    let temp = data.temps[i];
-    let rainRate = data.rainRate[i];
-    let cloud = data.cloud[i];
-
-    let weatherObj = {temp: temp, rainRate:rainRate, cloud:cloud};
-
-    weather.push(weatherObj);
-  }
+  const weather = temps.map((temp, i) => ({
+    temp: temp,
+    rainRate: rainRate[i],
+    cloud: cloud[i],
+  }));
 
   return (
-    <div className="Week">
-      {weather.map((weatherItem, i) => {
-        return <WeekWeather key={i} days={i+3} {...weatherItem} />;
-      })}
+    <div className="week">
+      {weather.map((weatherItem, i) => (
+        <WeekWeather key={i} days={i + 3} {...weatherItem} />
+      ))}
     </div>
   );
 };
+
 export default Week;

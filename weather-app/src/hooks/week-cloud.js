@@ -34,7 +34,7 @@ export const useWeekCloud = (location) => {
     "&" +
     encodeURIComponent("regId") +
     "=" +
-    encodeURIComponent("11B00000"); /**/
+    encodeURIComponent(location); /**/
   queryParams +=
     "&" +
     encodeURIComponent("tmFc") +
@@ -75,6 +75,7 @@ export const useWeekCloud = (location) => {
         setCloud(cloudy);
       } catch (error) {
         console.log(error);
+        return null
       }
     };
     fetchData();
