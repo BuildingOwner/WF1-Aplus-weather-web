@@ -1,0 +1,9 @@
+.weather-item {
+  width: 250px;
+}
+
+.weather-item div{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}

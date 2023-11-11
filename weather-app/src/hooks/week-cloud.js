@@ -1,3 +1,4 @@
+// week-cloud.js
 import WEEK_API_KYE from "../private/key";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -41,10 +42,9 @@ export const useWeekCloud = (location) => {
     encodeURIComponent(formattedDate + "0600"); /**/
 
   useEffect(() => {
-    axios
-      .get(url + queryParams)
-      .then((result) => {
-        console.log(result);
+    const fetchData = async () => {
+      try {
+        const result = await axios.get(url + queryParams);
         let rain = [];
         let cloudy = [];
 
@@ -73,9 +73,13 @@ export const useWeekCloud = (location) => {
         }
         setRainRate(rain);
         setCloud(cloudy);
-      })
-      .catch((error) => console.log(error));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
   }, [location]);
 
   return { rainRate: rainRate, cloud: cloud };
 };
+
