@@ -1,3 +1,4 @@
+import "./css/reset.css"
 import "./css/App.css";
 import Week from "./components/week";
 

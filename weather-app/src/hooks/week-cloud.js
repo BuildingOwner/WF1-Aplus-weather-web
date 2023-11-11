@@ -1,3 +1,4 @@
+// week-cloud.js
 import WEEK_API_KYE from "../private/key";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -10,9 +11,9 @@ export const useWeekCloud = (location) => {
   const year = now.getFullYear();
   const month = String(now.getMonth() + 1).padStart(2, "0");
   let day = String(now.getDate()).padStart(2, "0");
-  const hour = now.getHours()
-  if(hour<6){
-    day=String(now.getDate()-1).padStart(2, "0");
+  const hour = now.getHours();
+  if (hour < 6) {
+    day = String(now.getDate() - 1).padStart(2, "0");
   }
   const formattedDate = `${year}${month}${day}`;
 
@@ -23,10 +24,7 @@ export const useWeekCloud = (location) => {
   queryParams +=
     "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1"); /**/
   queryParams +=
-    "&" +
-    encodeURIComponent("numOfRows") +
-    "=" +
-    encodeURIComponent("10"); /**/
+    "&" + encodeURIComponent("numOfRows") + "=" + encodeURIComponent("10"); /**/
   queryParams +=
     "&" +
     encodeURIComponent("dataType") +
@@ -36,7 +34,7 @@ export const useWeekCloud = (location) => {
     "&" +
     encodeURIComponent("regId") +
     "=" +
-    encodeURIComponent("11B10101"); /**/
+    encodeURIComponent("11B00000"); /**/
   queryParams +=
     "&" +
     encodeURIComponent("tmFc") +
@@ -44,10 +42,9 @@ export const useWeekCloud = (location) => {
     encodeURIComponent(formattedDate + "0600"); /**/
 
   useEffect(() => {
-    axios
-      .get(url + queryParams)
-      .then((result) => {
-        console.log(result)
+    const fetchData = async () => {
+      try {
+        const result = await axios.get(url + queryParams);
         let rain = [];
         let cloudy = [];
 
@@ -65,7 +62,7 @@ export const useWeekCloud = (location) => {
           cloudy.push({ am: cam, pm: cpm });
         }
 
-        for(let i=0;i<3;i++){
+        for (let i = 0; i < 3; i++) {
           const rainAmKey = `rnSt${i + 8}`;
           const ra = result.data.response.body.items.item[0][rainAmKey];
           rain.push({ rain: ra });
@@ -76,10 +73,12 @@ export const useWeekCloud = (location) => {
         }
         setRainRate(rain);
         setCloud(cloudy);
-        
-      })
-      .catch((error) => console.log(error));
-  },[location]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, [location]);
 
   return { rainRate: rainRate, cloud: cloud };
 };
