@@ -2,7 +2,7 @@ import "../css/week.css";
 import { useState, useEffect } from "react";
 import { useWeekTemp } from "../hooks/week-temp";
 import { useWeekCloud } from "../hooks/week-cloud";
-import WeekWeather from "./weekWeather";
+import WeekWeather from "./week-weather";
 
 const Week = ({ location }) => {
   const [tempCode, setTempCode] = useState(null);
@@ -57,10 +57,13 @@ const Week = ({ location }) => {
   }));
 
   return (
-    <div className="week">
-      {weather.map((weatherItem, i) => (
-        <WeekWeather key={i} days={i + 3} {...weatherItem} />
-      ))}
+    <div className="current-week">
+      <h2>{location}</h2>
+      <div className="week">
+        {weather.map((weatherItem, i) => (
+          <WeekWeather key={i} days={i + 3} {...weatherItem} />
+        ))}
+      </div>
     </div>
   );
 };

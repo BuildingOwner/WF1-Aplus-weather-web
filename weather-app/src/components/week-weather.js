@@ -8,12 +8,15 @@ const cloudIcon = {
 };
 
 const WeekWeather = ({ days, temp, rainRate, cloud }) => {
+  const date = ["일", "월", "화", "수", "목", "금", "토"];
   const now = new Date();
   const month = String(now.getMonth() + 1).padStart(2, "0");
   let day = String(now.getDate() + days).padStart(2, "0");
+  let dayName = date[(now.getDay() + days) % 7];
   const hour = now.getHours();
   if (hour < 6) {
     day = String(now.getDate() + days - 1).padStart(2, "0");
+    dayName = date[(now.getDay() + days - 1) % 7];
   }
 
   if (!cloud && !rainRate && !temp) return <div></div>;
@@ -35,23 +38,31 @@ const WeekWeather = ({ days, temp, rainRate, cloud }) => {
 
   return (
     <div className="weather-item">
-      <div>
-        <span>
-          {month}. {day}
-        </span>
-        <span>
+      <div className="item-div">
+        <span className="item-cloud-container">
           {cloudy.map((cloudStr, idx) => {
-            return <i key={idx} className={`bi ${cloudIcon[cloudStr]}`}></i>;
+            return (
+              <i
+                key={idx}
+                className={`item-cloud bi ${
+                  cloudIcon[cloudStr.replace(" ", "")]
+                }`}
+              ></i>
+            );
           })}
         </span>
+        <div className="item-temp">
+          <div>
+            {month}. {day} {dayName}
+          </div>
+          <div className="item-temp-num">
+            {temp.min}° / {temp.max}°
+          </div>
+        </div>
       </div>
       <div>
-        <span>
-          <i className="bi bi-thermometer"></i>{temp.min} / 
-          <i className="bi bi-thermometer-high"></i>{temp.max}
-        </span>
-        <span>
-          <i className="bi bi-droplet"></i> {rain}
+        <span className="item-rain">
+          <i className="bi bi-umbrella"></i>&nbsp;{rain}
         </span>
       </div>
     </div>
