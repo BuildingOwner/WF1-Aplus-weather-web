@@ -56,9 +56,15 @@ const Week = ({ location }) => {
     cloud: cloud[i],
   }));
 
+  const currentLocation = location.split(' ')
+  let locationFormat = []
+  for(let i=0; i<3; i++){
+    locationFormat.push(currentLocation[i]);
+  }
+
   return (
     <div className="current-week">
-      <h2>{location}</h2>
+      <h2>{locationFormat.join(' ')}</h2>
       <div className="week">
         {weather.map((weatherItem, i) => (
           <WeekWeather key={i} days={i + 3} {...weatherItem} />

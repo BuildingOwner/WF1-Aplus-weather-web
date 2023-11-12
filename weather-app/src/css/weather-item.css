@@ -2,7 +2,7 @@
   text-align: left;
 }
 .weather-item {
-  min-width: 240px;
+  width: 240px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -27,7 +27,7 @@
   width: 100px;
   height: 70px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 3px;
   background-color: var(--skyblue);
@@ -48,9 +48,4 @@
 
 .item-temp-num {
   font-size: 1.8em;
-}
-.weather-item:nth-child(6) > div.item-div > span,
-.weather-item:nth-child(7) > div.item-div > span,
-.weather-item:nth-child(8) > div.item-div > span {
-  justify-content: center;
 }
