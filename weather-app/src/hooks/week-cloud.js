@@ -24,7 +24,7 @@ export const useWeekCloud = (location) => {
   queryParams +=
     "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1"); /**/
   queryParams +=
-    "&" + encodeURIComponent("numOfRows") + "=" + encodeURIComponent("10"); /**/
+    "&" + encodeURIComponent("numOfRows") + "=" + encodeURIComponent("100"); /**/
   queryParams +=
     "&" +
     encodeURIComponent("dataType") +
@@ -45,6 +45,7 @@ export const useWeekCloud = (location) => {
     const fetchData = async () => {
       try {
         const result = await axios.get(url + queryParams);
+        console.log(result)
         let rain = [];
         let cloudy = [];
 

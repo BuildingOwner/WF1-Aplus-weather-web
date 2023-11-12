@@ -1,0 +1,14 @@
+.favorate-current-week h2 {
+  text-align: left;
+}
+
+.favorate-current-week{
+  margin-bottom: 5em;
+}
+
+.slick-slide {
+  height: 150px !important;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
