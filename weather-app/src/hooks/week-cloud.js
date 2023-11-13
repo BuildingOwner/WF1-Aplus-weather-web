@@ -45,7 +45,6 @@ export const useWeekCloud = (location) => {
     const fetchData = async () => {
       try {
         const result = await axios.get(url + queryParams);
-        console.log(result)
         let rain = [];
         let cloudy = [];
 
