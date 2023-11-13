@@ -1,3 +1,6 @@
+.current-week{
+  padding: 20px;
+}
 .week{
   display: grid;
   grid-template-columns: repeat(4, auto);

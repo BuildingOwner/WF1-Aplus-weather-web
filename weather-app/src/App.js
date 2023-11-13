@@ -4,6 +4,8 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import Week from "./components/week";
 import FavorateWeek from "./components/favorate-week";
 import useCurrentLocation from "./hooks/useCurrentLocation";
+import Container from "./components/container"
+import Expention from "./components/expension";
 
 function App() {
   const { loaded, address, error } = useCurrentLocation();
@@ -13,8 +15,8 @@ function App() {
   }
   return (
     <div className="App">
-      <FavorateWeek location={address} />
-      <Week location={address} />
+      <Container location={address} />
+      <Expention location={address} />
     </div>
   );
 }

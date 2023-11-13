@@ -1,0 +1,13 @@
+.expention-week-item{
+    color: #fff;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 7fr 4fr 3fr 2fr 2fr;
+}
+.expention-week-item-date{
+    text-align: left;
+}
+.expention-week-item-cloud-container{
+    display: flex;
+    justify-content: space-around;
+}
