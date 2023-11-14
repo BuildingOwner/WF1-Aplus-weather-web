@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const ExToday = () => {
-  const { skys, temps, rains, baseTime, todayTemp } = useTodayWeather(123);
+  const { skys, temps, rains, todayTemp } = useTodayWeather(123);
 
   if (
     !skys ||
@@ -34,7 +34,11 @@ const ExToday = () => {
     autoplay: false, // 슬라이드를 자동으로 넘길지 여부
   };
 
-  console.log(todayTemp);
+  const now = new Date();
+  const time = [2, 5, 8, 11, 14, 17, 20, 23]
+  let currentHour = now.getHours();
+  let closest = time.reduce((prev, curr) => 
+  Math.abs(curr - currentHour) < Math.abs(prev - currentHour) ? curr : prev);
 
   return (
     <>
@@ -44,7 +48,7 @@ const ExToday = () => {
           {weather.map((weatherItem, i) => (
             <ExTodayItem
               key={i}
-              time={(Number(baseTime) + i) % 24}
+              time={closest + i}
               {...weatherItem}
             />
           ))}
