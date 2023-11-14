@@ -18,8 +18,6 @@ function Main() {
     <div className="app">
       <Sidebar />
       <div className="main-content">
-        
-
         {loading ? (
           <p>데이터 불러오는 중...</p>
         ) : data.length > 0 ? (

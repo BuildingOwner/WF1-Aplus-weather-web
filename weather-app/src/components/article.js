@@ -1,13 +1,13 @@
 import FavorateWeek from "./week/favorate-week";
 import Week from "./week/week";
-import NewsMain from "./news/NewsMain"
-import Main from "./Main/Main"
-import Forecast from "./airPollution/Forecast"
-import Weather from "./airPollution/Weather"
-import Chart from "./airPollution/Chart"
-import Chart2 from "./airPollution/Chart2"
+import NewsMain from "./news/NewsMain";
+import Main from "./Main/MainPage";
+import Forecast from "./airPollution/Forecast";
+import Weather from "./airPollution/Weather";
+import Chart from "./airPollution/Chart";
+import Chart2 from "./airPollution/Chart2";
 
-const Article = ({location}) => {
+const Article = ({ location }) => {
   return (
     <>
       <FavorateWeek location={location} />
@@ -15,11 +15,11 @@ const Article = ({location}) => {
       <NewsMain />
       <Main />
       <div>
-      <h4>Weather Forecast</h4>
+        <h4>Weather Forecast</h4>
         <Forecast />
       </div>
       <div className="weather-container">
-      <h4>내 지역 상세</h4>
+        <h4>내 지역 상세</h4>
         <Weather />
       </div>
       <div>
