@@ -4,9 +4,14 @@ import serviceKey from "../../private/serviceKey";
 function Weather() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [stnIds, setStnIds] = useState(["108", "112", "143"]); // stnIds를 state로 관리합니다.
-  const [newStnId, setNewStnId] = useState(""); // 사용자가 입력하는 새 지역의 ID를 관리하는 state를 추가합니다.
-
+  //const [stnIds, setStnIds] = useState(["108", "112", "143"]); // stnIds를 state로 관리합니다.
+  //const [newStnId, setNewStnId] = useState(""); // 사용자가 입력하는 새 지역의 ID를 관리하는 state를 추가합니다.
+  // const areaData = {
+  //   속초: "90",
+  //   북춘천: "93",
+  //   철원: "95",
+  //   // 나머지 지역 데이터도 이와 같이 추가합니다.
+  // };
   const fetchData = async () => {
     setLoading(true);
 
@@ -28,13 +33,18 @@ function Weather() {
           response.data,
           "text/xml"
         );
-
+        // const wsValue = xmlDoc.querySelector("ws").textContent;
+        // console.log("ws value: ", wsValue); // ws 값을 콘솔에 출력합니다.
+        // const rnValue = xmlDoc.querySelector("rn").textContent;
+        // console.log("rn value: ", rnValue); // rn 값을 콘솔에 출력합니다.
         return {
           stnNm: xmlDoc.querySelector("stnNm").textContent,
           ta: xmlDoc.querySelector("ta").textContent,
           hm: xmlDoc.querySelector("hm").textContent,
           ws: xmlDoc.querySelector("ws").textContent,
           rn: xmlDoc.querySelector("rn").textContent,
+          // ws: wsValue,
+          // rn: rnValue,
         };
       });
 
@@ -45,15 +55,18 @@ function Weather() {
       setLoading(false);
     }
   };
-  const addStnId = () => {
-    setStnIds([...stnIds, newStnId]);
-    setNewStnId("");
-  };
+  // const addStnId = (newStnName) => {
+  //   if (areaData[newStnName]) {
+  //     setStnIds([...stnIds, areaData[newStnName]]);
+  //   } else {
+  //     alert("입력한 지역의 데이터를 찾을 수 없습니다.");
+  //   }
+  // };
   useEffect(() => {
     fetchData();
-  }, [stnIds]); // stnIds가 변경될 때마다 fetchData를 호출합니다.
+  }, []); // stnIds가 변경될 때마다 fetchData를 호출합니다.
 
-  return { data, loading, newStnId, setNewStnId, addStnId }; // 입력 필드와 버튼에서 사용할 수 있도록 관련 state와 함수를 반환합니다.
+  return { data, loading }; // 입력 필드와 버튼에서 사용할 수 있도록 관련 state와 함수를 반환합니다.
 }
 
 export default Weather;
