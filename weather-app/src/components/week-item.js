@@ -7,7 +7,7 @@ const cloudIcon = {
   흐리고비: "bi-cloud-rain",
 };
 
-const WeekWeather = ({ days, temp, rainRate, cloud }) => {
+const WeekItem = ({ days, temp, rainRate, cloud }) => {
   const date = ["일", "월", "화", "수", "목", "금", "토"];
   const now = new Date();
   const month = String(now.getMonth() + 1).padStart(2, "0");
@@ -69,4 +69,4 @@ const WeekWeather = ({ days, temp, rainRate, cloud }) => {
   );
 };
 
-export default WeekWeather;
+export default WeekItem;

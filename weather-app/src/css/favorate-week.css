@@ -7,8 +7,11 @@
   padding: 20px;
 }
 
-.slick-slide {
+.favorate-current-week .slick-slide {
   height: 150px !important;
+}
+
+.slick-slide{
   display: flex !important;
   justify-content: center;
   align-items: center;
