@@ -1,10 +1,10 @@
-import "./css/App.css";
-import Week from "./components/week";
+import React from "react";
+import Main from "./components/Main/main";
 
 function App() {
   return (
     <div className="App">
-      <Week location="11B10101" />
+      <Main />
     </div>
   );
 }
