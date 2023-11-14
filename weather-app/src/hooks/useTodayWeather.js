@@ -16,8 +16,13 @@ const useTodayWeather = (location) => {
   if (hour < 6) {
     day = String(now.getDate() - 1).padStart(2, "0");
   }
-  const hours = String(now.getHours()-2).padStart(2, "0");
+  const time = [2, 5, 8, 11, 14, 17, 20, 23]
   const minute = String(now.getMinutes()).padStart(2, "0");
+  let currentHour = now.getHours();
+  let closest = time.reduce((prev, curr) => 
+  Math.abs(curr - currentHour) < Math.abs(prev - currentHour) ? curr : prev);
+  const hours = String(closest).padStart(2, "0")
+
   const currentTime = hours + minute;
   const formattedDate = `${year}${month}${day}`;
 
@@ -103,6 +108,6 @@ const useTodayWeather = (location) => {
     fetchData();
   }, [location]);
 
-  return { skys: sky, temps: temps, rains: rains, baseTime: hours, todayTemp: todayTemp};
+  return { skys: sky, temps: temps, rains: rains, todayTemp: todayTemp};
 };
 export default useTodayWeather;
