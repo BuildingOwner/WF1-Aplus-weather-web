@@ -58,7 +58,6 @@ const ExWeek = ({location}) => {
 
   return (
     <div className="expension-week">
-      <h2>{location.split(" ")[2]}</h2>
       <div className="expension-week-container">
         {weather.map((weatherItem, i) => (
           <ExWeekItem key={i} days={i + 3} {...weatherItem} />

@@ -6,6 +6,7 @@ const useTodayWeather = (location) => {
   const [sky, setSky] = useState([]);
   const [temps, setTemps] = useState([]);
   const [rains, setRains] = useState([]);
+  const [todayTemp, setTodayTemp] = useState([]);
 
   const now = new Date();
   const year = now.getFullYear();
@@ -15,9 +16,9 @@ const useTodayWeather = (location) => {
   if (hour < 6) {
     day = String(now.getDate() - 1).padStart(2, "0");
   }
-  const hours = String(now.getHours()).padStart(2, "0");
+  const hours = String(now.getHours()-2).padStart(2, "0");
   const minute = String(now.getMinutes()).padStart(2, "0");
-  const currentTime = hours + '00';
+  const currentTime = hours + minute;
   const formattedDate = `${year}${month}${day}`;
 
   // let latitude = 0;
@@ -28,14 +29,14 @@ const useTodayWeather = (location) => {
   // });
 
   const url =
-    "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst"; /*URL*/
+    "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst"; /*URL*/
   let queryParams =
     "?" + encodeURIComponent("serviceKey") + "=" + WEEK_API_KYE; /*Service Key*/
     queryParams +=
       "&" +
       encodeURIComponent("numOfRows") +
       "=" +
-      encodeURIComponent("100"); /**/
+      encodeURIComponent("120"); /**/
   queryParams +=
     "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1"); /**/
   queryParams +=
@@ -62,15 +63,16 @@ const useTodayWeather = (location) => {
     const fetchData = async () => {
       try {
         const result = await axios.get(url + queryParams);
+        console.log(result)
 
         let filteredData = result.data.response.body.items.item.filter(
-          (item) => item.category === "T1H"
+          (item) => item.category === "TMP"
         );
         let tempArr = filteredData.map((item) => item.fcstValue);
         setTemps(tempArr)
 
         filteredData = result.data.response.body.items.item.filter(
-          (item) => item.category === "RN1"
+          (item) => item.category === "POP"
         );
         let rainArr = filteredData.map((item) => item.fcstValue);
         setRains(rainArr)
@@ -80,6 +82,18 @@ const useTodayWeather = (location) => {
         );
         let skyArr = filteredData.map((item) => item.fcstValue);
         setSky(skyArr)
+
+        // filteredData = result.data.response.body.items.item.filter(
+        //   (item) => item.category === "TMN"
+        // );
+        // let todayTempMinArr = filteredData.map((item) => item.fcstValue);
+
+        // filteredData = result.data.response.body.items.item.filter(
+        //   (item) => item.category === "TMX"
+        // );
+        // let todayTempMaxArr = filteredData.map((item) => item.fcstValue);
+
+        // setTodayTemp({min: todayTempMinArr[0], max: todayTempMaxArr[0]})
         
       } catch (error) {
         console.log(error);
@@ -89,6 +103,6 @@ const useTodayWeather = (location) => {
     fetchData();
   }, [location]);
 
-  return { skys: sky, temps: temps, rains: rains };
+  return { skys: sky, temps: temps, rains: rains, baseTime: hours, todayTemp: todayTemp};
 };
 export default useTodayWeather;

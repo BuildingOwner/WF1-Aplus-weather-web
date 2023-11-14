@@ -2,7 +2,7 @@ import "../css/favorate-week.css";
 import { useState, useEffect } from "react";
 import { useWeekTemp } from "../hooks/week-temp";
 import { useWeekCloud } from "../hooks/week-cloud";
-import WeekWeather from "./week-weather";
+import WeekWeather from "./week-item";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
