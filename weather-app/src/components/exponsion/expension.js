@@ -1,4 +1,4 @@
-import "../css/expension.css";
+import "../../css/expension/expension.css";
 import ExWeek from "./ex-week";
 import ExToday from "./ex-today";
 

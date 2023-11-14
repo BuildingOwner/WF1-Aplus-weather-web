@@ -1,4 +1,4 @@
-import "../css/weather-item.css";
+import "../../css/week/weather-item.css";
 
 const cloudIcon = {
   맑음: "bi-sun",
