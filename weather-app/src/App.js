@@ -1,10 +1,17 @@
-import React from "react";
-import Main from "./components/Main/main";
+
 
 function App() {
+  const { loaded, address, error } = useCurrentLocation();
+
+  if (!loaded) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="App">
-      <Main />
+
+      <Container location={address} />
+      <Expention location={address} />
+
     </div>
   );
 }

@@ -1,0 +1,51 @@
+.current-week h2{
+  text-align: left;
+}
+.weather-item {
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.item-div {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px 10px 0;
+}
+.item-rain {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  font-size: 1.2em;
+  color: #aaa;
+}
+
+.item-cloud-container {
+  width: 100px;
+  height: 70px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 3px;
+  background-color: var(--skyblue);
+  border-radius: 10px;
+}
+
+.item-cloud {
+  font-size: 2.8em;
+}
+
+.item-temp {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 60px;
+  margin: 10px 0 0 10px;
+}
+
+.item-temp-num {
+  font-size: 1.8em;
+}
