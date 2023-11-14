@@ -1,6 +1,5 @@
 import React from "react";
 import Weather from "./Weather";
-import DateTime from "./DateTime";
 import Sidebar from "../Sidebar/Sidebar";
 import "../../css/Main/Weather.css";
 import "bootstrap/dist/css/bootstrap.css";
@@ -19,7 +18,7 @@ function Main() {
     <div className="app">
       <Sidebar />
       <div className="main-content">
-        <DateTime />
+        
 
         {loading ? (
           <p>데이터 불러오는 중...</p>
