@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import convert from 'xml-js';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../css/airPollution/Weather'
+import '../../css/airPollution/Weather.css'
 import Stack from 'react-bootstrap/Stack';
 import { Row, Col } from 'react-bootstrap'
 import { serviceKey } from '../../private/key';

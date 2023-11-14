@@ -18,7 +18,7 @@
 
 .map-container {
   position: relative;
-  background: url('../map.png') no-repeat;
+  background: url('../../../public/data/map.png') no-repeat;
   background-size: 100%;
   width: 410px;  /* 지도 이미지의 실제 너비 */
   height: 600px; /* 지도 이미지의 실제 높이 */

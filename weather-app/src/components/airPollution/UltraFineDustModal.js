@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { fetchData } from './api2.js'; // API 호출 로직 import
 import cities from './cities';
-import '../../css/airPollution/Modal'
+import '../../css/airPollution/Modal.css'
 
 const UltraFineDustModal = ({ show, handleClose }) => {
   const [data, setData] = useState([]);

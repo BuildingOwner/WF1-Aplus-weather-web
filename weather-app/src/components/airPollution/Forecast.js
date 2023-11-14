@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../css/Forecast.css'
+import '../../css/airPollution/Forecast.css'
 import AirQualityModal from './AirQualityModal';
 import FineDustModal from './FineDustModal';
 import UltraFineDustModal from './UltraFineDustModal';
