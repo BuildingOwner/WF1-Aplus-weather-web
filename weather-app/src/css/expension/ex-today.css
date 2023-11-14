@@ -3,7 +3,6 @@
   color: white;
   margin-bottom: 20px;
   padding: 15px 5px;
-  height: 100px;
 }
 
 .ex-today-item{
@@ -19,7 +18,6 @@
 .ex-current{
   display: flex;
   justify-content: space-around;
-  height: 130px;
   margin-bottom: 20px;
   padding: 30px 10px;
   background-color: #666;
