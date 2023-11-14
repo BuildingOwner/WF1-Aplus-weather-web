@@ -1,5 +1,5 @@
-import "../css/ex-today.css";
-import useTodayWeather from "../hooks/useTodayWeather";
+import "../../css/expension/ex-today.css";
+import useTodayWeather from "../../hooks/useTodayWeather";
 import ExTodayItem from "./ex-today-item";
 import ExCurrent from "./ex-current";
 import Slider from "react-slick";

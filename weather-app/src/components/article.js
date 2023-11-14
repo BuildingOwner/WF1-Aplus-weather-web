@@ -1,5 +1,5 @@
-import FavorateWeek from "./favorate-week";
-import Week from "./week";
+import FavorateWeek from "./week/favorate-week";
+import Week from "./week/week";
 
 const Article = ({location}) => {
   return (

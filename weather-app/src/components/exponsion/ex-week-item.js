@@ -1,4 +1,4 @@
-import "../css/ex-week-item.css";
+import "../../css/expension/ex-week-item.css";
 
 const cloudIcon = {
   맑음: "bi-sun",

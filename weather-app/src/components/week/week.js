@@ -1,10 +1,10 @@
-import "../css/ex-week.css"
+import "../../css/week/week.css";
 import { useState, useEffect } from "react";
-import { useWeekTemp } from "../hooks/week-temp";
-import { useWeekCloud } from "../hooks/week-cloud";
-import ExWeekItem from "./ex-week-item";
+import { useWeekTemp } from "../../hooks/useWeekTemp";
+import { useWeekCloud } from "../../hooks/useWeekCloud";
+import WeekItem from "./week-item";
 
-const ExWeek = ({location}) => {
+const Week = ({ location }) => {
   const [tempCode, setTempCode] = useState(null);
   const [weatherCode, setWeatherCode] = useState(null);
   const [cityName, setCityName] = useState(null);
@@ -48,7 +48,7 @@ const ExWeek = ({location}) => {
     rainRate.length === 0 ||
     cloud.length === 0
   )
-    return <div className="expension-week"></div>;
+    return <div className="week"></div>;
 
   const weather = temps.map((temp, i) => ({
     temp: temp,
@@ -56,15 +56,22 @@ const ExWeek = ({location}) => {
     cloud: cloud[i],
   }));
 
+  const currentLocation = location.split(' ')
+  let locationFormat = []
+  for(let i=0; i<3; i++){
+    locationFormat.push(currentLocation[i]);
+  }
+
   return (
-    <div className="expension-week">
-      <div className="expension-week-container">
+    <div className="current-week">
+      <h2>{locationFormat.join(' ')}</h2>
+      <div className="week">
         {weather.map((weatherItem, i) => (
-          <ExWeekItem key={i} days={i + 3} {...weatherItem} />
+          <WeekItem key={i} days={i + 3} {...weatherItem} />
         ))}
       </div>
     </div>
-  )
+  );
 };
 
-export default ExWeek;
+export default Week;
