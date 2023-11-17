@@ -1,7 +1,7 @@
 import FavorateWeek from "./week/favorate-week";
 import Week from "./week/week";
 import NewsMain from "./news/NewsMain";
-import Main from "./Main/MainPage";
+import MainPage from "./Main/MainPage";
 import AirMain from "./airPollution/AirMain";
 
 const Article = ({ location }) => {
@@ -10,7 +10,7 @@ const Article = ({ location }) => {
       <FavorateWeek location={location} />
       <Week location={location} />
       <NewsMain />
-      <Main />
+      <MainPage />
       <AirMain />
     </>
   );
