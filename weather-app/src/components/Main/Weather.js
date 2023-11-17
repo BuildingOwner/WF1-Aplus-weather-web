@@ -4,9 +4,6 @@ import serviceKey from "../../private/serviceKey";
 function Weather() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [stnIds, setStnIds] = useState(["108", "112", "143"]); // stnIds를 state로 관리합니다.
-  const [newStnId, setNewStnId] = useState(""); // 사용자가 입력하는 새 지역의 ID를 관리하는 state를 추가합니다.
-
   const fetchData = async () => {
     setLoading(true);
 
@@ -14,7 +11,7 @@ function Weather() {
     const year = now.getFullYear();
     const month = String(now.getMonth() + 1).padStart(2, "0");
     const day = String(now.getDate() - 1).padStart(2, "0");
-    const stnIds = ["108", "112", "143"]; // 원하는 지역의 ID를 배열로 설정하세요.
+    const stnIds = ["108", "112", "143", "119", "159"]; // 원하는 지역의 ID를 배열로 설정하세요.
     const requests = stnIds.map((stnId) => {
       const apiUrl = `http://apis.data.go.kr/1360000/AsosHourlyInfoService/getWthrDataList?serviceKey=${serviceKey}&numOfRows=10&pageNo=1&dataCd=ASOS&dateCd=HR&stnIds=${stnId}&endDt=${year}${month}${day}&endHh=01&startHh=01&startDt=${year}${month}${day}`;
       return axios.get(apiUrl);
@@ -28,13 +25,13 @@ function Weather() {
           response.data,
           "text/xml"
         );
-
         return {
           stnNm: xmlDoc.querySelector("stnNm").textContent,
           ta: xmlDoc.querySelector("ta").textContent,
           hm: xmlDoc.querySelector("hm").textContent,
           ws: xmlDoc.querySelector("ws").textContent,
-          rn: xmlDoc.querySelector("rn").textContent,
+          td: xmlDoc.querySelector("td").textContent,
+          ts: xmlDoc.querySelector("ts").textContent,
         };
       });
 
@@ -45,15 +42,11 @@ function Weather() {
       setLoading(false);
     }
   };
-  const addStnId = () => {
-    setStnIds([...stnIds, newStnId]);
-    setNewStnId("");
-  };
   useEffect(() => {
     fetchData();
-  }, [stnIds]); // stnIds가 변경될 때마다 fetchData를 호출합니다.
+  }, []);
 
-  return { data, loading, newStnId, setNewStnId, addStnId }; // 입력 필드와 버튼에서 사용할 수 있도록 관련 state와 함수를 반환합니다.
+  return { data, loading };
 }
 
 export default Weather;
