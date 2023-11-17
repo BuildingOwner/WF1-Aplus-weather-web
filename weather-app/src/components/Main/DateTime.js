@@ -16,6 +16,7 @@ function DateTime() {
   const date = now.toLocaleDateString();
   const time = now.toLocaleTimeString();
 
+  console.log(date)
   return (
     <div className="date-time">
       <p>{date}</p>
