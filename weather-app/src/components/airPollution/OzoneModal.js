@@ -14,7 +14,6 @@ const OzoneModal = ({ show, handleClose }) => {
 
       // 로컬 스토리지에서 데이터를 불러옵니다.
       const localStorageData = localStorage.getItem('data');
-      console.log(localStorageData);
 
       if (localStorageData) { // 로컬 스토리지에 데이터가 있는 경우
         fetchedData = JSON.parse(localStorageData);
