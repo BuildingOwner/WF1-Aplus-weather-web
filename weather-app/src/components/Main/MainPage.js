@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Weather from "./Weather";
-import Sidebar from "../Sidebar/Sidebar";
 import MainChart from "./MainChart";
 import "../../css/Main/Weather.css";
 import "bootstrap/dist/css/bootstrap.css";
@@ -17,7 +16,6 @@ function Main() {
   }, [data]);
   return (
     <div className="app">
-      <Sidebar />
       <div className="main-content">
         {loading ? (
           <p>데이터 불러오는 중...</p>
