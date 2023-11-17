@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Weather from "./Weather";
 import Sidebar from "../Sidebar/Sidebar";
-import Chart from "../airPollution/Chart";
+import MainChart from "./MainChart";
 import "../../css/Main/Weather.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { ProgressBar } from "react-bootstrap";
@@ -48,7 +48,7 @@ function Main() {
               </div> */}
             </div>
             <div>
-              <Chart />
+              <MainChart />
             </div>
             <div className="weather-summary">
               <h2>날씨요약</h2>
