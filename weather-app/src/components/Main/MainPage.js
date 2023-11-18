@@ -21,7 +21,7 @@ function Main() {
           <p>데이터 불러오는 중...</p>
         ) : data.length > 0 ? (
           <>
-            <div className="data-container" style={{ marginLeft: "55px" }}>
+            <div className="data-container">
               {data.map((weather, index) => (
                 <div
                   key={index}
@@ -51,7 +51,7 @@ function Main() {
             <div className="MainChart">
               <MainChart />
             </div>
-            <div className="weather-summary" style={{ marginLeft: "55px" }}>
+            <div className="weather-summary">
               <h2>날씨요약</h2>
               {selectedWeather && (
                 <div className="summary-container">
