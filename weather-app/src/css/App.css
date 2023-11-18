@@ -1,7 +1,9 @@
 .App {
+  color: white;
   text-align: center;
   display: flex;
   /* justify-content: space-between; */
+  font-family: "East";
 }
 .center-content {
   width: 77%;
