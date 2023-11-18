@@ -49,7 +49,7 @@ const WeatherChart2 = () => {
   }, []);
 
   return (
-    <ResponsiveContainer  width="90%" height={300}>
+    <ResponsiveContainer  width="97%" height={300}>
       <LineChart
         data={weatherData}
         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}

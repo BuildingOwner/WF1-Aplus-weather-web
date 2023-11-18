@@ -49,9 +49,9 @@ const Weather = () => {
   }, [weatherData]);
 
   return (
-    <div>
+    <>
       {weatherData && (
-        <div className="bordered-div">
+        <div className="weather-bordered-div">
           <h5>{city}</h5>
           <Row>
             <Col>
@@ -206,7 +206,7 @@ const Weather = () => {
           })}
         </div>
       )}
-    </div>
+    </>
   );
 };
 export default Weather;
