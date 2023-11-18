@@ -1,9 +1,9 @@
-.expention{
-  min-width: 350px;
+.expention {
+  width: 350px;
   background-color: #eee;
 }
 
-.expension-current-location{
+.expension-current-location {
   background-color: #666;
   color: white;
   margin-bottom: 0;

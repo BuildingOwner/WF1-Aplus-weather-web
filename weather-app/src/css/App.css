@@ -1,4 +1,8 @@
 .App {
   text-align: center;
   display: flex;
+  justify-content: space-between;
+}
+.center-content {
+  width: 75%;
 }
