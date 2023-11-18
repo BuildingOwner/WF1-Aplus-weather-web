@@ -1,7 +1,10 @@
 .nav-link {
   margin-bottom: 10px;
 }
-
+.flex-column {
+  background-color: #5383e8;
+}
 .nav .bi {
   font-size: 1.4rem;
+  color: white;
 }

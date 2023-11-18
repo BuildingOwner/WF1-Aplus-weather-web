@@ -1,10 +1,11 @@
 .expention {
   width: 350px;
-  background-color: #eee;
+  background-image: url("../../../public/data/sky.jpg");
+  background-size: cover;
+  height: 1000px;
 }
 
 .expension-current-location {
-  background-color: #666;
   color: white;
   margin-bottom: 0;
   padding-top: 20px;
