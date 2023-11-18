@@ -1,10 +1,11 @@
 .NewsItemBlock {
     display: flex;
-    background-color: #f8f9fa; /* 배경색 추가 */
+    background-color: var(--blue); /* 배경색 추가 */
     border-radius: 10px; /* 모서리를 둥글게 */
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2); /* 그림자 효과 추가 */
     transition: all 0.3s ease; /* 부드러운 전환 효과 */
     margin-bottom: 20px; /* 아래쪽 마진 추가 */
+    justify-content: center;
   
     &:hover {
       transform: scale(1.02); /* 마우스 호버 시 아이템 확대 */
@@ -20,7 +21,8 @@
         object-fit:cover;
       }
     }
-    .contents{
+    .newsItem-contents{
+      width: 90%;
       .box{
         margin: 10;
         .aBox{

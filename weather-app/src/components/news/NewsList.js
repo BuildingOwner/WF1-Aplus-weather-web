@@ -9,7 +9,7 @@ import "../../css/news/NewsList.css";
 const NewsListBlock = styled.div`
     box-sizing: border-box;
     padding-bottom: 3rem;
-    width: 768px;
+    width: 100%;
     margin: 0 auto;
     margin-top: 2rem;
     @media screen and (max-width: 768px){

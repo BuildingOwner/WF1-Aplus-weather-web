@@ -32,7 +32,7 @@ const NewsItem = ({article})=>{
 
     return(
         <div className='NewsItemBlock'>
-            <div className='contents'>
+            <div className='newsItem-contents'>
                 <h2 className='box'>   
                     <a href={originallink} onClick={handleLinkClick} className='aBox'> 
                     {title}

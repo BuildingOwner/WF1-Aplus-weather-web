@@ -3,14 +3,14 @@ body{
   margin:0;
 }
 
-.container {
+.forecast-container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   align-content: center;
   flex-wrap: wrap;
-  width: 100%;
-  margin: 0;
+  width: 95%;
+  margin-left: 20px;
 }
 .btns {
   flex: 1 1 auto;
