@@ -19,7 +19,7 @@ const WeekItem = ({ days, temp, rainRate, cloud }) => {
     dayName = date[(now.getDay() + days - 1) % 7];
   }
 
-  if (!cloud && !rainRate && !temp) return <div></div>;
+  if (!cloud || !rainRate || !temp) return <div></div>;
 
   let cloudy = [];
   if (cloud && cloud.cloud == undefined) {
