@@ -68,7 +68,6 @@ const useTodayWeather = (location) => {
     const fetchData = async () => {
       try {
         const result = await axios.get(url + queryParams);
-        console.log(result)
 
         let filteredData = result.data.response.body.items.item.filter(
           (item) => item.category === "TMP"
