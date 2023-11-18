@@ -1,13 +1,16 @@
 .App {
+  color: white;
   text-align: center;
   display: flex;
   /* justify-content: space-between; */
+  font-family: "East";
 }
 .center-content {
   width: 80%;
   overflow: auto;
-  margin-left: 80px;
+  margin-left: 70px;
   margin-right: 350px;
+  background-color: var(--violet);
 }
 .expention-fixed {
   position: fixed;

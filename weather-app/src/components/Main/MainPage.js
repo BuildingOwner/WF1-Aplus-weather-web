@@ -29,7 +29,10 @@ function Main() {
                   onClick={() => setSelectedWeather(weather)}
                   style={
                     selectedWeather === weather
-                      ? { backgroundColor: "#5caceb" }
+                      ? {
+                          background:
+                            "linear-gradient(to bottom right,  #FFFFFF,#6a9bffff 30%)",
+                        }
                       : {}
                   }
                 >
