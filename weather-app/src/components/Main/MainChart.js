@@ -9,7 +9,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-
+//
 const MainChart = () => {
   const [weatherData, setWeatherData] = useState([
     // 여기에 원하는 데이터를 넣어주세요.
