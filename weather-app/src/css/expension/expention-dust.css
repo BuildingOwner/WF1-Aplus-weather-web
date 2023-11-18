@@ -1,15 +1,19 @@
-.expention-dust{
+.expention-dust {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
+  /* grid-gap: 5px; */
 }
 
-.expention-dust-item{
+.expention-dust-item {
   padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background-color: #666;
+  /* background-color: #666; */
   color: white;
+  background-color: #4babe396;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
-

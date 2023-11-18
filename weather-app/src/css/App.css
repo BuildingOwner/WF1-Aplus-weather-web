@@ -1,8 +1,25 @@
 .App {
   text-align: center;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 .center-content {
-  width: 75%;
+  width: 80%;
+  overflow: auto;
+  margin-left: 80px;
+  margin-right: 350px;
+}
+.expention-fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+.sidebar-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* width: 20%; */
+  width: 70px;
+  height: 100%;
+  background-color: #5383e8;
 }

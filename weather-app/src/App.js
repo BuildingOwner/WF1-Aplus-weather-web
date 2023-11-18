@@ -18,7 +18,9 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Sidebar />
+        <div className="sidebar-fixed">
+          <Sidebar />
+        </div>
         <div className="center-content">
           <DateTime />
           <Routes>
@@ -33,7 +35,9 @@ function App() {
             {/* <Route path="*" element={<NotFound />}></Route> */}
           </Routes>
         </div>
-        <Expention location={address} />
+        <div className="expention-fixed">
+          <Expention location={address} />
+        </div>
       </BrowserRouter>
     </div>
   );
