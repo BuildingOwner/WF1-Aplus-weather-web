@@ -6,7 +6,7 @@ import Chart2 from './Chart2';
 
 const AirMain = () => {
   return (
-    <div>
+    <div style={{minWidth: 700}}>
       <div>
         <h4>Weather Forecast</h4>
         <Forecast />
