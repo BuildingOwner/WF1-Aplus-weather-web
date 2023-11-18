@@ -21,12 +21,17 @@ function Main() {
           <p>데이터 불러오는 중...</p>
         ) : data.length > 0 ? (
           <>
-            <div className="data-container">
+            <div className="data-container" style={{ marginLeft: "55px" }}>
               {data.map((weather, index) => (
                 <div
                   key={index}
                   className="weather-data"
                   onClick={() => setSelectedWeather(weather)}
+                  style={
+                    selectedWeather === weather
+                      ? { backgroundColor: "#5caceb" }
+                      : {}
+                  }
                 >
                   <div className="weather-top">
                     <p>{weather.stnNm}</p>
@@ -40,10 +45,10 @@ function Main() {
                 </div>
               ))}
             </div>
-            <div>
+            <div className="MainChart">
               <MainChart />
             </div>
-            <div className="weather-summary">
+            <div className="weather-summary" style={{ marginLeft: "55px" }}>
               <h2>날씨요약</h2>
               {selectedWeather && (
                 <div className="summary-container">
