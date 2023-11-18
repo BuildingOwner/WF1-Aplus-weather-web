@@ -4,22 +4,15 @@
   /* justify-content: space-between; */
 }
 .center-content {
-  width: 80%;
-  overflow: auto;
-  margin-left: 80px;
-  margin-right: 350px;
+  width: 77%;
+  background-color: var(--navy);
+  color: white;
 }
 .expention-fixed {
-  position: fixed;
-  top: 0;
-  right: 0;
+  width: 20%;
+  background-color: var(--violet);
 }
 .sidebar-fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  /* width: 20%; */
-  width: 70px;
-  height: 100%;
-  background-color: #5383e8;
+  width: 3%;
+  background-color: var(--navy);
 }

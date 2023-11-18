@@ -18,8 +18,8 @@ function DateTime() {
 
   return (
     <div className="date-time">
-      <p>{date}</p>
-      <p>{time}</p>
+      <span className="date-time-time">{time}</span>
+      <span>{date}</span>
     </div>
   );
 }

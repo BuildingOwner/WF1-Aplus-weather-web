@@ -7,7 +7,8 @@
   flex-direction: column;
   justify-content: space-around;
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  /* box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; */
+  background-color: var(--light-navy);
 }
 
 .item-div {
@@ -24,13 +25,12 @@
 }
 
 .item-cloud-container {
-  width: 100px;
+  width: 115px;
   height: 70px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 3px;
-  background-color: var(--skyblue);
   border-radius: 10px;
 }
 
@@ -48,4 +48,14 @@
 
 .item-temp-num {
   font-size: 1.8em;
+}
+
+.item-cloud-container .bi-sun{
+  color: var(--light-orange);
+}
+.item-cloud-container .bi-clouds, .item-cloud-container .bi-cloud{
+  color: #ccc;
+}
+.item-cloud-container .bi-cloud-rain{
+  color: #777;
 }

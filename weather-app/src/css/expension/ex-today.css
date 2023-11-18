@@ -1,9 +1,7 @@
 .ex-today-item-container {
-  /* background-color: #666; */
   color: white;
-  /* margin-bottom: 20px; */
   padding: 15px 5px;
-  background-color: #4babe396;
+  background-color: var(--blue);
   border-radius: 20px;
   margin: 10px;
 }
