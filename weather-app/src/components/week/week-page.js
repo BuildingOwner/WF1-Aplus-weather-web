@@ -54,7 +54,7 @@ const WeekPage = ({ location }) => {
   }
 
   return (
-    <div style={{ minWidth: 1100 }}>
+    <div className="week-page">
       <FavorateWeek locationFormat={locationFormat} weather={weather}/>
       <Week locationFormat={locationFormat} weather={weather} />
       <WeekChart />
