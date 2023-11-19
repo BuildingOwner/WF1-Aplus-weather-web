@@ -97,11 +97,11 @@ const AuthForm = ({type, form, onChange, onSubmit, error})=>{
                 value={form.passwordConfirm}
             />)}
             {error && <ErrorMessage>{error}</ErrorMessage>}
-            <Button cyan fullWidth style={{marginTop: '1rem'}}>
+            <Button  style={{marginTop: '1rem'}}>
                 {text}
             </Button>
             </form>
-                <Footer>
+        <Footer>
             {type === 'login' ? (
             <Link to="/register">회원가입</Link>
             ) : (
