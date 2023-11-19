@@ -53,9 +53,11 @@
 .weather-summary > h2 {
   font-size: 1.6em;
   font-weight: bold;
+  margin-bottom: 20px;
 }
 
-.summary-container, .data-container {
+.summary-container,
+.data-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

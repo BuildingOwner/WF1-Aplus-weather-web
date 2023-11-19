@@ -1,49 +1,68 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import serviceKey from "../../private/serviceKey";
-function Weather() {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const fetchData = async () => {
-    setLoading(true);
 
+function Weather() {
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  const locations = [
+    { name: "서울", nx: "60", ny: "127" },
+    { name: "인천", nx: "55", ny: "124" },
+    { name: "대구", nx: "89", ny: "90" },
+    { name: "수원", nx: "60", ny: "121" },
+    { name: "부산", nx: "98", ny: "76" },
+  ];
+
+  const fetchData = async (location) => {
+    setLoading(true);
     const now = new Date();
-    const year = now.getFullYear();
-    const month = String(now.getMonth()).padStart(2, "0");
-    const day = String(now.getDate() - 1).padStart(2, "0");
-    const stnIds = ["108", "112", "143", "119", "159"]; // 원하는 지역의 ID를 배열로 설정하세요.
-    const requests = stnIds.map((stnId) => {
-      const apiUrl = `http://apis.data.go.kr/1360000/AsosHourlyInfoService/getWthrDataList?serviceKey=${serviceKey}&numOfRows=10&pageNo=1&dataCd=ASOS&dateCd=HR&stnIds=${stnId}&endDt=${year}${month}${day}&endHh=01&startHh=01&startDt=${year}${month}${day}`;
-      return axios.get(apiUrl);
-    });
+    if (now.getMinutes() < 30) {
+      now.setHours(now.getHours() - 1);
+    }
+    const year = String(now.getFullYear());
+    const month = String(now.getMonth() + 1).padStart(2, "0"); // 주의: getMonth()는 0부터 시작합니다.
+    const day = String(now.getDate()).padStart(2, "0");
+    const hour = String(now.getHours()).padStart(2, "0");
+    const apiUrl = `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst?serviceKey=${serviceKey}&numOfRows=1000&pageNo=1&base_date=${year}${month}${day}&base_time=${hour}30&nx=${location.nx}&ny=${location.ny}`;
 
     try {
-      const responses = await Promise.all(requests);
+      const response = await axios.get(apiUrl);
+      console.log("API 응답:", response.data); // API 응답 출력
+      const xmlDoc = new DOMParser().parseFromString(response.data, "text/xml");
+      const items = xmlDoc.querySelectorAll("item");
 
-      const data = responses.map((response) => {
-        const xmlDoc = new DOMParser().parseFromString(
-          response.data,
-          "text/xml"
-        );
-        return {
-          stnNm: xmlDoc.querySelector("stnNm").textContent,
-          ta: xmlDoc.querySelector("ta").textContent,
-          hm: xmlDoc.querySelector("hm").textContent,
-          ws: xmlDoc.querySelector("ws").textContent,
-          td: xmlDoc.querySelector("td").textContent,
-          ts: xmlDoc.querySelector("ts").textContent,
-        };
+      let newData = { T1H: null, REH: null, WSD: null };
+      items.forEach((item) => {
+        const categoryEl = item.querySelector("category");
+        const fcstValueEl = item.querySelector("fcstValue");
+        if (categoryEl && fcstValueEl) {
+          const category = categoryEl.textContent;
+          if (
+            category === "T1H" ||
+            category === "REH" ||
+            category === "WSD" ||
+            category === "RN1" ||
+            category === "SKY"
+          ) {
+            newData[category] = fcstValueEl.textContent;
+          }
+        }
       });
 
-      setData(data);
+      setData((prevData) => ({
+        ...prevData,
+        [location.name]: newData,
+      }));
     } catch (error) {
       console.error("데이터를 불러오는 중 오류가 발생했습니다.", error);
     } finally {
       setLoading(false);
     }
   };
+
   useEffect(() => {
-    fetchData();
+    locations.forEach(fetchData);
   }, []);
 
   return { data, loading };

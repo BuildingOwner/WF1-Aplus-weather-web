@@ -25,6 +25,7 @@
 }
 .MainChart {
   background-color: var(--navy);
+  margin-top: 30px;
   margin-bottom: 30px;
   border-radius: 10px;
 }
