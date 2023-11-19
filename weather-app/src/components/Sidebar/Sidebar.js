@@ -15,34 +15,26 @@ const UserInfo = styled.div`
 function Sidebar({user,onLogout}) {
   return (
     <nav className="nav flex-column">
-      <Link to="/">
-        <a className="nav-link active" aria-current="page" href="#">
-          <i className="bi bi-house"></i>
-        </a>
+      <Link className="nav-link active" aria-current="page" to="/">
+        <i className="bi bi-house"></i>
       </Link>
-      <Link to="/week/">
-        <a className="nav-link" href="#">
-          <i className="bi bi-calendar"></i>
-        </a>
+      <Link className="nav-link" to="/week/">
+        <i className="bi bi-calendar"></i>
       </Link>
-      <Link to="/airPollution/">
-        <a className="nav-link" href="#">
-          <i class="bi bi-globe"></i>
-        </a>
+      <Link className="nav-link" to="/airPollution/">
+        <i className="bi bi-globe"></i>
       </Link>
-      <Link to="/news/">
-        <a className="nav-link" href="#">
-          <i className="bi bi-tornado"></i>
-        </a>
+      <Link className="nav-link" to="/news/">
+        <i className="bi bi-tornado"></i>
       </Link>
       {user ? (
             <div className="right">
               <UserInfo>{user.username}</UserInfo>
-              <Button onClick={onLogout}><i class="bi bi-box-arrow-left"></i></Button>
+              <Button onClick={onLogout}><i className="bi bi-box-arrow-left"></i></Button>
             </div>
           ) : (
             <div className="right">
-              <Button to="/login"><i class="bi bi-box-arrow-in-right"></i></Button>
+              <Button to="/login"><i className="bi bi-box-arrow-in-right"></i></Button>
             </div>
           )}
     </nav>
