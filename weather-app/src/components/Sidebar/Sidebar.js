@@ -1,7 +1,18 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import "../../css/Sidebar/Sidebar.css";
-function Sidebar() {
+import Button from "../common/Button";
+import { styled } from "styled-components";
+
+
+
+const UserInfo = styled.div`
+  font-weight: 800,
+  margin-right: 1rem;
+`;
+
+
+function Sidebar({user,onLogout}) {
   return (
     <nav className="nav flex-column">
       <Link to="/">
@@ -24,6 +35,16 @@ function Sidebar() {
           <i className="bi bi-tornado"></i>
         </a>
       </Link>
+      {user ? (
+            <div className="right">
+              <UserInfo>{user.username}</UserInfo>
+              <Button onClick={onLogout}><i class="bi bi-box-arrow-left"></i></Button>
+            </div>
+          ) : (
+            <div className="right">
+              <Button to="/login"><i class="bi bi-box-arrow-in-right"></i></Button>
+            </div>
+          )}
     </nav>
   );
 }
