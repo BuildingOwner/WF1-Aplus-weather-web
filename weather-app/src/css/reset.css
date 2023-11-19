@@ -123,13 +123,17 @@ table {
 }
 
 :root {
-	--navy : #32305fff;
-	--pink : #ff6ea3ff;
-	--greed : #03cd5cff;
-	--blue : #6a9bffff;
-	--yellow : #d7c100ff;
-	--orange : #d64d00ff;
-	--light-orange : #ffb766ff;
-	--violet : #2c2b53ff;
-	--light-navy: #3d3b70ff
+  --navy: #3d3b71ff;
+  --pink: #ff6ea3ff;
+  --greed: #03cd5cff;
+  --blue: #6a9bffff;
+  --yellow: #d7c100ff;
+  --orange: #d64d00ff;
+  --light-orange: #ffb766ff;
+  --violet: #2c2b53ff;
+  --light-navy: #3d3b70ff;
+
+  --navy1: #3d3b71;
+  --navy2: #32305f;
+  --navy3: #2c2b53;
 }

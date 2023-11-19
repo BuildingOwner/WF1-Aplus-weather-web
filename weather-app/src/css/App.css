@@ -6,15 +6,24 @@
   font-family: "East";
 }
 .center-content {
-  width: 77%;
-  background-color: var(--navy);
+  width: 75%;
+  background-color: var(--navy2);
   color: white;
 }
 .expention-fixed {
   width: 20%;
-  
 }
 .sidebar-fixed {
-  width: 3%;
+  width: 5%;
   background-color: var(--navy);
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+}
+.MainChart {
+  background-color: var(--navy);
+  margin-bottom: 30px;
+  width: 90%;
+  border-radius: 10px;
 }

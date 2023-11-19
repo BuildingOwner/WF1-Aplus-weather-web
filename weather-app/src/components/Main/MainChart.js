@@ -9,7 +9,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-
+//
 const MainChart = () => {
   const [weatherData, setWeatherData] = useState([
     // 여기에 원하는 데이터를 넣어주세요.
@@ -56,7 +56,7 @@ const MainChart = () => {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey="seoul" fill="#8884d8" name="Temperature" />
+        <Bar dataKey="seoul" fill="#ffb766" name="시간별 예보" />
       </BarChart>
     </ResponsiveContainer>
   );

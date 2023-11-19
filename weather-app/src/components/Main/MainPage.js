@@ -4,8 +4,7 @@ import MainChart from "./MainChart";
 import "../../css/Main/Weather.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { ProgressBar } from "react-bootstrap";
-import { WiDaySunny } from "react-icons/wi";
-
+import sunny from "../../Images/sunny.gif";
 function Main() {
   const { data, loading } = Weather();
   const [selectedWeather, setSelectedWeather] = useState(null); // 선택된 날씨 정보를 관리하는 state
@@ -21,7 +20,7 @@ function Main() {
           <p>데이터 불러오는 중...</p>
         ) : data.length > 0 ? (
           <>
-            <div className="data-container" style={{ marginLeft: "55px" }}>
+            <div className="data-container">
               {data.map((weather, index) => (
                 <div
                   key={index}
@@ -40,7 +39,11 @@ function Main() {
                     <p>{weather.stnNm}</p>
                   </div>
                   <div className="weather-middle">
-                    <WiDaySunny size={50} />
+                    <img
+                      src={sunny}
+                      alt="sunny"
+                      style={{ width: 70, height: 70 }}
+                    />
                   </div>
                   <div className="weather-bottom">
                     <p>기온: {weather.ta}°C</p>
@@ -51,7 +54,7 @@ function Main() {
             <div className="MainChart">
               <MainChart />
             </div>
-            <div className="weather-summary" style={{ marginLeft: "55px" }}>
+            <div className="weather-summary">
               <h2>날씨요약</h2>
               {selectedWeather && (
                 <div className="summary-container">
