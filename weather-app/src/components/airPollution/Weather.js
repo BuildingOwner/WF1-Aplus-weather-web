@@ -161,14 +161,14 @@ const Weather = () => {
                           <Stack direction="vertical" gap={2}>
                             <div className='badge-group'>
                               <div className="custom-badge" style={{ backgroundColor: stateColors[state1] }}>{value1}</div>
-                              <div>
+                              <div className='badge-group-text-container'>
                                 <div className="badge-text"> {label1}</div>
                                 <div className='st' style={{ color: stateColors[state1] }}>{state1}</div>
                               </div>
                             </div>
                             <div className='badge-group'>
                               <div className="custom-badge" style={{ backgroundColor: stateColors[state2] }}>{value2}</div>
-                              <div>
+                              <div className='badge-group-text-container'>
                                 <div className="badge-text"> {label2}</div>
                                 <div className='st' style={{ color: stateColors[state2] }}>{state2}</div>
                               </div>
@@ -183,14 +183,14 @@ const Weather = () => {
                           <Stack direction="vertical" gap={2}>
                             <div className='badge-group'>
                               <div className="custom-badge" style={{ backgroundColor: stateColors[state1] }}>{value1}</div>
-                              <div>
+                              <div className='badge-group-text-container'>
                                 <div className="badge-text"> {label1}</div>
                                 <div className='st' style={{ color: stateColors[state1] }}>{state1}</div>
                               </div>
                             </div>
                             <div className='badge-group'>
                               <div className="custom-badge" style={{ backgroundColor: stateColors[state2] }}>{value2}</div>
-                              <div>
+                              <div className='badge-group-text-container'>
                                 <div className="badge-text"> {label2}</div>
                                 <div className='st' style={{ color: stateColors[state2] }}>{state2}</div>
                               </div>

@@ -9,7 +9,7 @@ const AirMain = () => {
   return (
     <div style={{minWidth: 700}}>
       <div className="airmain-div">
-        <h4>Weather Forecast</h4>
+        <h4>전국 대기 오염 실황</h4>
         <Forecast />
       </div>
       <div className="airmain-div">

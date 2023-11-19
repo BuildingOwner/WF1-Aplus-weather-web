@@ -3,8 +3,36 @@ import WeekWeather from "./week-item";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useState, useEffect } from "react";
+import { useWeekTemp } from "../../hooks/useWeekTemp";
+import { useWeekCloud } from "../../hooks/useWeekCloud";
 
-const FavorateWeek = ({ locationFormat, weather }) => {
+const favoraiteCity = ["서울", "인천", "대구", "수원", "부산"];
+
+const FavorateWeek = ({ locationFormat, weather, tempCode, weatherCode }) => {
+  const [favorateWeather, setFavorateWeather] = useState([]);
+
+  useEffect(() => {
+    setFavorateWeather(weather);
+  }, [weather]);
+
+  const weekTemp = useWeekTemp(tempCode ? tempCode[favoraiteCity[0]] : null);
+  const weekCloud = useWeekCloud(
+    weatherCode ? weatherCode[favoraiteCity[0]] : null
+  );
+
+  const ChangeCity = (city) => {
+    const { temps } = weekTemp(city);
+    const { rainRate, cloud } = weekCloud(city);
+    const changeWeather = temps.map((temp, i) => ({
+      temp: temp,
+      rainRate: rainRate[i],
+      cloud: cloud[i],
+    }));
+
+    setFavorateWeather(changeWeather);
+  };
+
   if (weather.length == 0) return <div className="favoraite-week"></div>;
   const settings = {
     arrows: false, // 양 끝 화살표 생성여부
@@ -17,9 +45,24 @@ const FavorateWeek = ({ locationFormat, weather }) => {
 
   return (
     <div className="favorate-current-week">
-      <h2>{locationFormat.join(" ")}</h2>
+      <div className="favorate-current-week-top">
+        <h2>{locationFormat.join(" ")}</h2>
+        <select
+          className="form-select"
+          aria-label="Default select example"
+          onChange={(e) => ChangeCity(e.target.value)}
+        >
+          <option selected>Open this select menu</option>
+          {favoraiteCity.map((cityName, i) => (
+            <option key={i} value={cityName}>
+              {cityName}
+            </option>
+          ))}
+        </select>
+      </div>
+
       <Slider {...settings}>
-        {weather.map((weatherItem, i) => (
+        {favorateWeather.map((weatherItem, i) => (
           <WeekWeather key={i} days={i + 3} {...weatherItem} />
         ))}
       </Slider>

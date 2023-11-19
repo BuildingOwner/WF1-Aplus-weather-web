@@ -11,7 +11,6 @@ const NewsMain = () => {
                 <h1>재난 특보</h1>
                 <DisasterMsgList />
             </div>
-            <hr></hr>
             <div className='news-div'>
                 <h1>날씨 뉴스</h1>
                 <div className="main-container">
