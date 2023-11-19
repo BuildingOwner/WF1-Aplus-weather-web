@@ -13,10 +13,11 @@
 .expention-fixed {
   width: 20%;
   background-color: var(--violet);
+  min-width: 325px;
 }
 .sidebar-fixed {
   width: 5%;
-  background-color: var(--navy);
+  background-color: var(--violet);
   /* display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,6 +26,5 @@
 .MainChart {
   background-color: var(--navy);
   margin-bottom: 30px;
-  width: 90%;
   border-radius: 10px;
 }

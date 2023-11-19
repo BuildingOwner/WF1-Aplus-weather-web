@@ -39,7 +39,6 @@ const NewsItem = ({ article }) => {
         </h2>
         <p>{getDate(pubDate)}</p>
         <p>{description}</p>
-        <hr></hr>
       </div>
 
       <Modal
@@ -52,6 +51,9 @@ const NewsItem = ({ article }) => {
             width: "1200px", // 모달창의 너비를 1200px로 설정
             height: "800px", // 모달창의 높이를 800px로 설정
             margin: "auto", // 모달창을 화면 가운데에 위치시킴
+          },
+          overlay: {
+            backgroundColor: 'rgba(0, 0, 0, 0.5)'
           },
         }}
       >
