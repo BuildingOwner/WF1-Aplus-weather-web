@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
-  margin: 10px;
+  margin: 10px 25px;
 }
 
 .expention-dust-item {

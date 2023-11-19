@@ -1,0 +1,23 @@
+html,body {
+  width: 400px;
+}
+.App {
+  color: white;
+  text-align: center;
+  display: flex;
+  /* justify-content: space-between; */
+  font-family: "East";
+}
+.center-content {
+  width: 77%;
+  background-color: var(--navy);
+  color: white;
+}
+.expention-fixed {
+  width: 20%;
+  background-color: var(--violet);
+}
+.sidebar-fixed {
+  width: 3%;
+  background-color: var(--navy);
+}
