@@ -1,49 +1,63 @@
 .NewsItemBlock {
-    display: flex;
-    background-color: var(--blue); /* 배경색 추가 */
-    border-radius: 10px; /* 모서리를 둥글게 */
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2); /* 그림자 효과 추가 */
-    transition: all 0.3s ease; /* 부드러운 전환 효과 */
-    margin-bottom: 20px; /* 아래쪽 마진 추가 */
-    justify-content: center;
-  
-    &:hover {
-      transform: scale(1.02); /* 마우스 호버 시 아이템 확대 */
-      box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.3); /* 마우스 호버 시 그림자 강조 */
-    }
-  
-    .thumbnail{
-      margin-right: 1rem;
-      img{
-        display: block;
-        width:160px;
-        height:100px;
-        object-fit:cover;
-      }
-    }
-    .newsItem-contents{
-      width: 90%;
-      .box{
-        margin: 10;
-        .aBox{
-          color:black;
-          cursor: pointer;
-          transition: color 0.3s;
-          text-decoration: none;
-          &:hover {
-            color: gray;
-          }
-        }
-      }
-      p{
-        margin:0;
-        line-height:1.5;
-        margin-top: 0.5rem;
-        white-space: normal;
-      }
-    }
-    &+& {
-      margin-top:3rem;
+  display: flex;
+  background-color: var(--blue); /* 배경색 추가 */
+  border-radius: 10px; /* 모서리를 둥글게 */
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2); /* 그림자 효과 추가 */
+  transition: all 0.3s ease; /* 부드러운 전환 효과 */
+  margin-bottom: 20px; /* 아래쪽 마진 추가 */
+  justify-content: center;
+
+  &:hover {
+    transform: scale(1.02); /* 마우스 호버 시 아이템 확대 */
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.3); /* 마우스 호버 시 그림자 강조 */
+  }
+
+  .thumbnail {
+    margin-right: 1rem;
+    img {
+      display: block;
+      width: 160px;
+      height: 100px;
+      object-fit: cover;
     }
   }
-  
+  .newsItem-contents {
+    width: 90%;
+    .box {
+      margin: 10;
+      .aBox {
+        color: black;
+        cursor: pointer;
+        transition: color 0.3s;
+        text-decoration: none;
+        &:hover {
+          color: #ccc;
+        }
+      }
+    }
+    p {
+      margin: 0;
+      line-height: 1.5;
+      margin-top: 0.5rem;
+      white-space: normal;
+    }
+  }
+  & + & {
+    margin-top: 3rem;
+  }
+}
+
+.news-modal-top {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0 40px 0;
+}
+
+.news-modal-top a {
+  color: black;
+  text-decoration: none;
+}
+
+.news-modal-top a:hover{
+  color: #ccc;
+}

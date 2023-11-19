@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const ExToday = () => {
   const { skys, temps, rains, todayTemp } = useTodayWeather(123);
+  console.log(todayTemp)
 
   if (
     !skys ||

@@ -12,6 +12,7 @@
 }
 .expention-fixed {
   width: 20%;
+  background-color: var(--violet);
 }
 .sidebar-fixed {
   width: 5%;
