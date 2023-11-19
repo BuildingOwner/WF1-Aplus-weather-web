@@ -9,7 +9,7 @@ function Weather() {
 
     const now = new Date();
     const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const month = String(now.getMonth()).padStart(2, "0");
     const day = String(now.getDate() - 1).padStart(2, "0");
     const stnIds = ["108", "112", "143", "119", "159"]; // 원하는 지역의 ID를 배열로 설정하세요.
     const requests = stnIds.map((stnId) => {

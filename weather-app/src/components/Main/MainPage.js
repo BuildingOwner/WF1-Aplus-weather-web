@@ -87,6 +87,7 @@ function Main() {
                       <ProgressBar
                         style={{ height: "20px" }}
                         now={selectedWeather.td}
+                        min={-10}
                         max={10}
                       />
                     </div>

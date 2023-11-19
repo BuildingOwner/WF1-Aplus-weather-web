@@ -13,6 +13,14 @@ import {
 const MainChart = () => {
   const [weatherData, setWeatherData] = useState([
     // 여기에 원하는 데이터를 넣어주세요.
+    { dataTime: "16:00", seoul: -3 },
+    { dataTime: "17:00", seoul: -3 },
+    { dataTime: "18:00", seoul: -3 },
+    { dataTime: "19:00", seoul: -3 },
+    { dataTime: "20:00", seoul: -1 },
+    { dataTime: "21:00", seoul: -3 },
+    { dataTime: "22:00", seoul: -3 },
+    { dataTime: "23:00", seoul: -2 },
     { dataTime: "00:00", seoul: -1 },
     { dataTime: "01:00", seoul: 2 },
     { dataTime: "02:00", seoul: 2 },
@@ -30,14 +38,6 @@ const MainChart = () => {
     { dataTime: "13:00", seoul: -4 },
     { dataTime: "14:00", seoul: -3 },
     { dataTime: "15:00", seoul: -3 },
-    { dataTime: "16:00", seoul: -3 },
-    { dataTime: "17:00", seoul: -3 },
-    { dataTime: "18:00", seoul: -3 },
-    { dataTime: "19:00", seoul: -3 },
-    { dataTime: "20:00", seoul: -1 },
-    { dataTime: "21:00", seoul: -3 },
-    { dataTime: "22:00", seoul: -3 },
-    { dataTime: "23:00", seoul: -2 },
   ]);
 
   // 데이터를 시간 순으로 정렬
