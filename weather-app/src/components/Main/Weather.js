@@ -23,37 +23,39 @@ function Weather() {
     const year = String(now.getFullYear());
     const month = String(now.getMonth() + 1).padStart(2, "0"); // 주의: getMonth()는 0부터 시작합니다.
     const day = String(now.getDate()).padStart(2, "0");
-    const hour = String(now.getHours()).padStart(2, "0");
-    const apiUrl = `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst?serviceKey=${serviceKey}&numOfRows=1000&pageNo=1&base_date=${year}${month}${day}&base_time=${hour}30&nx=${location.nx}&ny=${location.ny}`;
+    const hour = String(now.getHours() - 2).padStart(2, "0");
+    const apiUrl = `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${serviceKey}&numOfRows=1000&pageNo=1&base_date=${year}${month}${day}&base_time=${hour}30&nx=${location.nx}&ny=${location.ny}`;
 
     try {
       const response = await axios.get(apiUrl);
-      console.log("API 응답:", response.data); // API 응답 출력
+      // console.log("API 응답:", response.data); // API 응답 출력
       const xmlDoc = new DOMParser().parseFromString(response.data, "text/xml");
       const items = xmlDoc.querySelectorAll("item");
 
-      let newData = { T1H: null, REH: null, WSD: null };
+      let newData = { TMP: null, REH: null, WSD: null, PCP: null, SKY: null };
       items.forEach((item) => {
         const categoryEl = item.querySelector("category");
         const fcstValueEl = item.querySelector("fcstValue");
         if (categoryEl && fcstValueEl) {
           const category = categoryEl.textContent;
           if (
-            category === "T1H" ||
+            category === "TMP" ||
             category === "REH" ||
             category === "WSD" ||
-            category === "RN1" ||
+            category === "PCP" ||
             category === "SKY"
           ) {
             newData[category] = fcstValueEl.textContent;
+            console.log(`[${location.name}] ${category}: ${newData[category]}`); // 카테고리 값 출력
           }
         }
       });
 
-      setData((prevData) => ({
-        ...prevData,
-        [location.name]: newData,
-      }));
+      setData((prevData) => {
+        const updatedData = { ...prevData, [location.name]: newData };
+        // console.log(updatedData);
+        return updatedData;
+      });
     } catch (error) {
       console.error("데이터를 불러오는 중 오류가 발생했습니다.", error);
     } finally {

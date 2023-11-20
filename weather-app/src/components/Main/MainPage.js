@@ -50,7 +50,7 @@ function Main() {
                     />
                   </div>
                   <div className="weather-bottom">
-                    <p>기온: {data[city].T1H}°C</p>
+                    <p>기온: {data[city].TMP - 2}°C</p>
                   </div>
                 </div>
               ))}
@@ -87,14 +87,14 @@ function Main() {
                   <div className="summary-item">
                     <p className="summary-title">강수량</p>
                     <p className="summary-value">
-                      {selectedWeather.RN1}
-                      {selectedWeather.RN1 !== "강수없음" && "mm"}
+                      {selectedWeather.PCP}
+                      {selectedWeather.PCP !== "강수없음" && "mm"}
                     </p>
-                    {selectedWeather.RN1 !== "강수없음" && (
+                    {selectedWeather.PCP !== "강수없음" && (
                       <div className="summary-box">
                         <ProgressBar
                           style={{ height: "20px", opacity: 0.5 }} // opacity 값을 조절하시면 됩니다.
-                          now={selectedWeather.RN1}
+                          now={selectedWeather.PCP}
                           max={10}
                         />
                       </div>

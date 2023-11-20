@@ -67,14 +67,14 @@ const useTodayWeather = (location) => {
 
   let queryParamsMinTemp =
     "?" + encodeURIComponent("serviceKey") + "=" + WEEK_API_KYE; /*Service Key*/
-    queryParamsMinTemp +=
+  queryParamsMinTemp +=
     "&" +
     encodeURIComponent("numOfRows") +
     "=" +
     encodeURIComponent("120"); /**/
-    queryParamsMinTemp +=
+  queryParamsMinTemp +=
     "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1"); /**/
-    queryParamsMinTemp +=
+  queryParamsMinTemp +=
     "&" +
     encodeURIComponent("dataType") +
     "=" +
@@ -88,26 +88,26 @@ const useTodayWeather = (location) => {
     encodeURIComponent("base_date") +
     "=" +
     encodeURIComponent(minTempDate); /**/
-    queryParamsMinTemp +=
+  queryParamsMinTemp +=
     "&" +
     encodeURIComponent("base_time") +
     "=" +
     encodeURIComponent("0220"); /**/
-    queryParamsMinTemp +=
+  queryParamsMinTemp +=
     "&" + encodeURIComponent("nx") + "=" + encodeURIComponent("55"); /**/
-    queryParamsMinTemp +=
+  queryParamsMinTemp +=
     "&" + encodeURIComponent("ny") + "=" + encodeURIComponent("127"); /**/
 
-    let queryParamsMaxTemp =
+  let queryParamsMaxTemp =
     "?" + encodeURIComponent("serviceKey") + "=" + WEEK_API_KYE; /*Service Key*/
-    queryParamsMaxTemp +=
+  queryParamsMaxTemp +=
     "&" +
     encodeURIComponent("numOfRows") +
     "=" +
     encodeURIComponent("120"); /**/
-    queryParamsMaxTemp +=
+  queryParamsMaxTemp +=
     "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1"); /**/
-    queryParamsMaxTemp +=
+  queryParamsMaxTemp +=
     "&" +
     encodeURIComponent("dataType") +
     "=" +
@@ -121,19 +121,20 @@ const useTodayWeather = (location) => {
     encodeURIComponent("base_date") +
     "=" +
     encodeURIComponent(maxTempDate); /**/
-    queryParamsMaxTemp +=
+  queryParamsMaxTemp +=
     "&" +
     encodeURIComponent("base_time") +
     "=" +
     encodeURIComponent("0820"); /**/
-    queryParamsMaxTemp +=
+  queryParamsMaxTemp +=
     "&" + encodeURIComponent("nx") + "=" + encodeURIComponent("55"); /**/
-    queryParamsMaxTemp +=
+  queryParamsMaxTemp +=
     "&" + encodeURIComponent("ny") + "=" + encodeURIComponent("127"); /**/
   useEffect(() => {
     const fetchData = async () => {
       try {
         const result = await axios.get(url + queryParams);
+        console.log(result);
         const resultMinTemp = await axios.get(url + queryParamsMinTemp);
         const resultMaxTemp = await axios.get(url + queryParamsMaxTemp);
 
@@ -165,7 +166,7 @@ const useTodayWeather = (location) => {
         );
         let todayTempMaxArr = filteredData.map((item) => item.fcstValue);
 
-        setTodayTemp({min: todayTempMinArr[0], max: todayTempMaxArr[0]})
+        setTodayTemp({ min: todayTempMinArr[0], max: todayTempMaxArr[0] });
       } catch (error) {
         console.log(error);
         return null;
