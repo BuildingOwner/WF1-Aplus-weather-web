@@ -1,0 +1,36 @@
+.favorate-current-week h2 {
+  text-align: left;
+}
+
+.favorate-current-week {
+  margin-bottom: 5em;
+  padding: 20px;
+}
+
+.favorate-current-week .slick-slide {
+  height: 150px !important;
+}
+
+.slick-slide {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.favorate-current-week-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.favorate-current-week-top button {
+  padding: 5px 20px;
+  background-color: var(--green);
+  border: none;
+  font-size: 1.4em;
+}
+
+.favorate-current-week-top button:hover {
+  background-color: #999;
+}
+

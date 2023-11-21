@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "East";
+  font-style: normal;
+  font-weight: 100;
+  src: url("./EASTARJET-DemiLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: "East";
+  font-style: normal;
+  font-weight: 100;
+  src: url("./EASTARJET-Heavy.ttf") format("truetype");
+}
+@font-face {
+  font-family: "East";
+  font-style: normal;
+  font-weight: 100;
+  src: url("./EASTARJET-Medium.ttf") format("truetype");
+}

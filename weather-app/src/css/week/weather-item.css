@@ -1,0 +1,61 @@
+.current-week h2{
+  text-align: left;
+}
+.weather-item {
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 10px;
+  /* box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; */
+  background-color: var(--light-navy);
+}
+
+.item-div {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.item-rain {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  font-size: 1.2em;
+  color: #aaa;
+}
+
+.item-cloud-container {
+  width: 115px;
+  height: 70px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 3px;
+  border-radius: 10px;
+}
+
+.item-cloud {
+  font-size: 2.8em;
+}
+
+.item-temp {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 60px;
+  margin: 10px 0 0 10px;
+}
+
+.item-temp-num {
+  font-size: 1.8em;
+}
+
+.item-cloud-container .bi-sun{
+  color: var(--light-orange);
+}
+.item-cloud-container .bi-clouds, .item-cloud-container .bi-cloud{
+  color: #ccc;
+}
+.item-cloud-container .bi-cloud-rain{
+  color: #777;
+}

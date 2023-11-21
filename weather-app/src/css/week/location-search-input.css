@@ -1,0 +1,17 @@
+.input-group{
+  display: flex;
+  justify-content: flex-end !important;
+  padding-right: 20px;
+}
+
+.favorate-input{
+  width: fit-content;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+.input-group-text{
+  background-color: var(--light-navy) !important;
+  color: white !important;
+}

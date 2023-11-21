@@ -1,0 +1,13 @@
+{
+  "name": "APLUS-weather-web",
+  "description": "날씨 예보 어플리케이션",
+  "manifest_version": 3,
+  "version": "1.0.0",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "geolocation"],
+  "action": {
+    "default_popup": "index.html"
+  }
+}

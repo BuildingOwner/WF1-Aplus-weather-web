@@ -1,0 +1,22 @@
+button.active {
+    background-color: var(--blue);
+    color: white;
+}
+
+.news-page-btn {
+    background-color: var(--navy);
+    color: white;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.news-page-btn:hover{
+    background-color: var(--light-orange);
+}
+
+.news-page-btn-container{
+    display: flex;
+    justify-content: space-evenly;
+}

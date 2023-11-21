@@ -1,0 +1,98 @@
+/* .nav-link {
+  margin: 10px;
+  border-radius: 10px;
+} */
+
+/* .nav-link:hover {
+  background-color: var(--blue);
+} */
+
+.nav .bi {
+  font-size: 1.4rem;
+  color: white;
+}
+
+.nav {
+  position: sticky;
+  top: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 아이콘들을 수직으로 가운데 정렬 */
+}
+
+.nav-link {
+  display: flex;
+  justify-content: center; /* 아이콘들을 수평으로 가운데 정렬 */
+  align-items: center; /* 아이콘들을 수직으로 가운데 정렬 */
+  height: 50px; /* 원하는 높이로 설정 */
+  margin-bottom: 30px;
+}
+.icon {
+  width: 50px;
+  height: 50px;
+}
+
+/* .nav-link.active .homeicon {
+  content: url("../../Images/home.png");
+}
+
+.nav-link.active:hover .homeicon {
+  width: 65px;
+  height: 65px;
+  content: url("../../Images/home2.gif");
+}
+
+.nav-link.active .calicon {
+  content: url("../../Images/cal.png");
+}
+
+.nav-link.active:hover .calicon {
+  width: 65px;
+  height: 65px;
+  content: url("../../Images/cal2.gif");
+}
+.nav-link.active .earthicon {
+  content: url("../../Images/earth.png");
+}
+
+.nav-link.active:hover .earthicon {
+  width: 65px;
+  height: 65px;
+  content: url("../../Images/earth2.gif");
+}
+
+.nav-link.active .newsicon {
+  content: url("../../Images/news.png");
+}
+
+.nav-link.active:hover .newsicon {
+  width: 65px;
+  height: 65px;
+  content: url("../../Images/news2.gif");
+} */
+
+.right {
+  margin-top: 50px;
+  height: 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--light-navy);
+  border-radius: 5px;
+  padding-top: 5px;
+  &:hover{
+    background-color: #868e96;
+    
+  }
+}
+
+.nav-link .bi{
+  font-size: 2em;
+  padding: 5px 15px;
+  border-radius: 5px;
+  background-color: var(--light-navy);
+
+  &:hover{
+    background-color: var(--blue);
+  }
+}
