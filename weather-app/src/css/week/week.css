@@ -1,10 +1,20 @@
 .current-week{
   padding: 20px;
 }
+.current-week h2 {
+  margin-bottom: 20px;
+}
 .week{
   display: grid;
   grid-template-columns: repeat(4, auto);
   gap: 20px;
   align-items: center;
   justify-items: center;
+}
+
+.week-page h2 {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: var(--blue);
+  width: fit-content;
 }

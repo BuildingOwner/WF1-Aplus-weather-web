@@ -9,7 +9,7 @@ import "../../css/news/NewsList.css";
 const NewsListBlock = styled.div`
     box-sizing: border-box;
     padding-bottom: 3rem;
-    width: 768px;
+    width: 100%;
     margin: 0 auto;
     margin-top: 2rem;
     @media screen and (max-width: 768px){
@@ -68,19 +68,19 @@ const NewsList = ()=>{
             {articles.map((article,index)=>(
                 <NewsItem key={index} article={article}/>
             ))}
-            <div>
-                {currentPage !== 1 && <button onClick={() => handlePageChange(1)}>첫 페이지</button>}
-                {currentPage > 1 && <button onClick={() => handlePageChange(currentPage - 1)}>이전</button>}
+            <div className='news-page-btn-container'>
+                {currentPage !== 1 && <button className='news-page-btn' onClick={() => handlePageChange(1)}>첫 페이지</button>}
+                {currentPage > 1 && <button className='news-page-btn' onClick={() => handlePageChange(currentPage - 1)}>이전</button>}
                 {/* 페이지네이션 버튼들 */}
                 {pages.map((number) => (
                     <button key={number} onClick={() => handlePageChange(number)}
-                        className={currentPage === number ? 'active' : ''}
+                        className={`news-page-btn ${currentPage === number ? 'active' : ''}`}
                     >
                         {number}
                     </button>
                 ))}
-                {currentPage < totalPages && <button onClick={() => handlePageChange(currentPage + 1)}>다음</button>}
-                {currentPage !== totalPages && <button onClick={() => handlePageChange(totalPages)}>마지막 페이지</button>}
+                {currentPage < totalPages && <button className='news-page-btn' onClick={() => handlePageChange(currentPage + 1)}>다음</button>}
+                {currentPage !== totalPages && <button className='news-page-btn' onClick={() => handlePageChange(totalPages)}>마지막 페이지</button>}
             </div>
         </NewsListBlock>
     );

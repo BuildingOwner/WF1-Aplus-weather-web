@@ -10,7 +10,7 @@ const ExCurrent = ({ todayTemp, sky, temp }) => {
       <div className="ex-current-info">
         <div>{temp}°</div>
         <div>{cloudIcon[sky].str}</div>
-        <div>2° / 7°</div>
+        <div>{Math.floor(todayTemp.min)}° / {Math.floor(todayTemp.max)}°</div>
       </div>
       <div className="ex-current-icon">
         <i className={`bi ${cloudIcon[sky].class}`}></i>

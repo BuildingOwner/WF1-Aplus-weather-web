@@ -1,5 +1,6 @@
-.expension-week-container{
-    background-color: #666;
-    padding: 5px;
-    margin-bottom: 20px;
+.expension-week-container {
+  padding: 5px;
+  background-color: var(--pink);
+  border-radius: 20px;
+  margin: 10px 25px;
 }

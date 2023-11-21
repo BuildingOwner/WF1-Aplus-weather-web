@@ -1,11 +1,16 @@
 import "../../css/week/favorate-week.css";
-import { useState, useEffect } from "react";
-import { useWeekTemp } from "../../hooks/useWeekTemp";
-import { useWeekCloud } from "../../hooks/useWeekCloud";
 import WeekWeather from "./week-item";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+// import { useState, useEffect } from "react";
+// import { useWeekTemp } from "../../hooks/useWeekTemp";
+// import { useWeekCloud } from "../../hooks/useWeekCloud";
+
+// const favoraiteCity = ["서울", "인천", "대구", "수원", "부산"];
+
+// const FavorateWeek = ({ locationFormat, weather, tempCode, weatherCode }) => {
+//   const [favorateWeather, setFavorateWeather] = useState([]);
 import { useNavigate } from 'react-router-dom'; 
 import { useSelector } from 'react-redux';
 import axios from "axios";
@@ -66,42 +71,32 @@ const FavorateWeek = ({ location,valid }) => {
   }, [location]);
 
   useEffect(() => {
-    fetch("/data/weather-code.json")
-      .then((response) => response.json())
-      .then((data) => {
-        setWeatherCode(data);
-      });
-  }, [location]);
+    setFavorateWeather(weather);
+  }, [weather]);
 
-  const { temps } = useWeekTemp(
-    cityName && tempCode ? tempCode[cityName] : null
-  );
-  const { rainRate, cloud } = useWeekCloud(
-    cityName && weatherCode ? weatherCode[cityName] : null
+  const weekTemp = useWeekTemp(tempCode ? tempCode[favoraiteCity[0]] : null);
+  const weekCloud = useWeekCloud(
+    weatherCode ? weatherCode[favoraiteCity[0]] : null
   );
 
-  if (
-    !temps ||
-    !rainRate ||
-    !cloud ||
-    temps.length === 0 ||
-    rainRate.length === 0 ||
-    cloud.length === 0
-  )
-    return <div className="favorate-week"></div>;
+  const ChangeCity = (city) => {
+    const { temps } = weekTemp(city);
+    const { rainRate, cloud } = weekCloud(city);
+    const changeWeather = temps.map((temp, i) => ({
+      temp: temp,
+      rainRate: rainRate[i],
+      cloud: cloud[i],
+    }));
 
-  const weather = temps.map((temp, i) => ({
-    temp: temp,
-    rainRate: rainRate[i],
-    cloud: cloud[i],
-  }));
-
+//     setFavorateWeather(changeWeather);
+  };
   const currentLocation = location ? location.split(" ") : [];
   let locationFormat = [];
   for (let i = 0; i < 3; i++) {
     locationFormat.push(currentLocation[i]);
   }
 
+  if (weather.length == 0) return <div className="favoraite-week"></div>;
   const settings = {
     arrows: false, // 양 끝 화살표 생성여부
     dots: true, // 슬라이더 아래에 슬라이드 개수를 점 형태로 표시
@@ -112,11 +107,27 @@ const FavorateWeek = ({ location,valid }) => {
   };
 
   return (
-    <div className="favorate-current-week">
+    <div className="favorate-current-week
+//       <div className="favorate-current-week-top">
+//         <h2>{locationFormat.join(" ")}</h2>
+//         <select
+//           className="form-select"
+//           aria-label="Default select example"
+//           onChange={(e) => ChangeCity(e.target.value)}
+//         >
+//           <option selected>Open this select menu</option>
+//           {favoraiteCity.map((cityName, i) => (
+//             <option key={i} value={cityName}>
+//               {cityName}
+//             </option>
+//           ))}
+//         </select>
+//       </div>
+
       <h2>{locationFormat.join(" ")}</h2>
       {valid && <button onClick={handleSave}>저장</button>} {/* 저장 버튼 추가 */}
       <Slider {...settings}>
-        {weather.map((weatherItem, i) => (
+        {favorateWeather.map((weatherItem, i) => (
           <WeekWeather key={i} days={i + 3} {...weatherItem} />
         ))}
       </Slider>

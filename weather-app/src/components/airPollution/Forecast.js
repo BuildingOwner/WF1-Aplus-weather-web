@@ -13,7 +13,7 @@ const Forecast = () => {
   const handleShow = (modal) => setShowModal({ [modal]: true });
 
   return (
-    <div className="container">
+    <div className="forecast-container">
       <button className="btns btn-1" onClick={() => handleShow('AirQuality')}>통합대기</button>
       <button className="btns btn-2" onClick={() => handleShow('FineDust')}>미세먼지</button>
       <button className="btns btn-3" onClick={() => handleShow('UltraFineDust')}>초미세먼지</button>

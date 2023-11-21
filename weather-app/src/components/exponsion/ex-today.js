@@ -35,10 +35,11 @@ const ExToday = () => {
   };
 
   const now = new Date();
-  const time = [2, 5, 8, 11, 14, 17, 20, 23]
+  const time = [2, 5, 8, 11, 14, 17, 20, 23];
   let currentHour = now.getHours();
-  let closest = time.reduce((prev, curr) => 
-  Math.abs(curr - currentHour) < Math.abs(prev - currentHour) ? curr : prev);
+  let closest = time.reduce((prev, curr) =>
+    Math.abs(curr - currentHour) < Math.abs(prev - currentHour) ? curr : prev
+  );
 
   return (
     <>
@@ -46,11 +47,7 @@ const ExToday = () => {
       <div className="ex-today-item-container">
         <Slider {...settings}>
           {weather.map((weatherItem, i) => (
-            <ExTodayItem
-              key={i}
-              time={closest + i}
-              {...weatherItem}
-            />
+            <ExTodayItem key={i} time={(closest + i) % 24} {...weatherItem} />
           ))}
         </Slider>
       </div>

@@ -1,8 +1,8 @@
-.bordered-div {
-  border: 1px solid #7296FE;
+.weather-bordered-div {
+  border: 2px solid var(--blue);
+  border-radius: 10px;
   padding: 10px;
   margin: 20px;
-  width:95%;
 }
 
 .circle {
@@ -15,12 +15,12 @@
   align-items: center;
   justify-content: center;
   margin: 20px;
-  color: #7296FE;
+  color: var(--blue);
 }
 
 .circle-group, .grades, .badge-group {
   display: flex;
-  flex-direction: flex-start;
+  justify-content: space-evenly;
 }
 
 .circle-container {
@@ -47,18 +47,14 @@
   flex-direction: flex-start;
 }
 
-.badge-text {
-  margin-left: 5px;
-}
-
 .grades{
   margin-top: 10px;
 }
 
 .badge-group {
   display: flex;
-  justify-content: start;
-  gap: 10px;
+  justify-content: flex-start;
+  justify-content: space-evenly;
 }
 
 .custom-badge {
@@ -77,6 +73,6 @@
   color: #fff;
 }
 
-.st{
-  margin-left: 15px;
+.badge-group-text-container{
+  width: 100px;
 }

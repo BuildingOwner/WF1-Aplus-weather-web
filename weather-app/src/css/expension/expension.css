@@ -1,11 +1,11 @@
-.expention{
-  min-width: 350px;
-  background-color: #eee;
+.expention {
+  position: sticky;
+  top: 0;
 }
 
-.expension-current-location{
-  background-color: #666;
+.expension-current-location {
   color: white;
   margin-bottom: 0;
   padding-top: 20px;
 }
+
