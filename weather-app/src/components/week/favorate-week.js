@@ -3,9 +3,9 @@ import WeekWeather from "./week-item";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-// import { useState, useEffect } from "react";
-// import { useWeekTemp } from "../../hooks/useWeekTemp";
-// import { useWeekCloud } from "../../hooks/useWeekCloud";
+import { useState, useEffect } from "react";
+import { useWeekTemp } from "../../hooks/useWeekTemp";
+import { useWeekCloud } from "../../hooks/useWeekCloud";
 
 // const favoraiteCity = ["서울", "인천", "대구", "수원", "부산"];
 
@@ -71,32 +71,41 @@ const FavorateWeek = ({ location,valid }) => {
   }, [location]);
 
   useEffect(() => {
-    setFavorateWeather(weather);
-  }, [weather]);
+    fetch("/data/weather-code.json")
+      .then((response) => response.json())
+      .then((data) => {
+        setWeatherCode(data);
+      });
+  }, [location]);
 
-  const weekTemp = useWeekTemp(tempCode ? tempCode[favoraiteCity[0]] : null);
-  const weekCloud = useWeekCloud(
-    weatherCode ? weatherCode[favoraiteCity[0]] : null
+  const { temps } = useWeekTemp(
+    cityName && tempCode ? tempCode[cityName] : null
+  );
+  const { rainRate, cloud } = useWeekCloud(
+    cityName && weatherCode ? weatherCode[cityName] : null
   );
 
-  const ChangeCity = (city) => {
-    const { temps } = weekTemp(city);
-    const { rainRate, cloud } = weekCloud(city);
-    const changeWeather = temps.map((temp, i) => ({
-      temp: temp,
-      rainRate: rainRate[i],
-      cloud: cloud[i],
-    }));
+  if (
+    !temps ||
+    !rainRate ||
+    !cloud ||
+    temps.length === 0 ||
+    rainRate.length === 0 ||
+    cloud.length === 0
+  )
+    return <div className="favorate-week"></div>;
 
-//     setFavorateWeather(changeWeather);
-  };
+  const weather = temps.map((temp, i) => ({
+    temp: temp,
+    rainRate: rainRate[i],
+    cloud: cloud[i],
+  }));
+
   const currentLocation = location ? location.split(" ") : [];
   let locationFormat = [];
   for (let i = 0; i < 3; i++) {
     locationFormat.push(currentLocation[i]);
   }
-
-  if (weather.length == 0) return <div className="favoraite-week"></div>;
   const settings = {
     arrows: false, // 양 끝 화살표 생성여부
     dots: true, // 슬라이더 아래에 슬라이드 개수를 점 형태로 표시
@@ -127,7 +136,7 @@ const FavorateWeek = ({ location,valid }) => {
       <h2>{locationFormat.join(" ")}</h2>
       {valid && <button onClick={handleSave}>저장</button>} {/* 저장 버튼 추가 */}
       <Slider {...settings}>
-        {favorateWeather.map((weatherItem, i) => (
+        {weather.map((weatherItem, i) => (
           <WeekWeather key={i} days={i + 3} {...weatherItem} />
         ))}
       </Slider>

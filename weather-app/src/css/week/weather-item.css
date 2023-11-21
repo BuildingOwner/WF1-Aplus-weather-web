@@ -2,7 +2,7 @@
   text-align: left;
 }
 .weather-item {
-  width: 240px;
+  width: 270px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -14,7 +14,7 @@
 .item-div {
   display: flex;
   justify-content: space-between;
-  padding: 0 10px 10px 0;
+  padding: 10px;
 }
 .item-rain {
   display: flex;

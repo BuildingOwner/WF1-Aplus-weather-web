@@ -58,9 +58,9 @@ const WeekPage = ({ location }) => {
 //     <div className="week-page">
 //       <FavorateWeek locationFormat={locationFormat} weather={weather} tempCode={tempCode} weatherCode={weatherCode}/>
 //       <Week locationFormat={locationFormat} weather={weather} />
-    <div style={{ minWidth: 1100, height: "100vh" }}>
+    <div className="week-page">
       <LocationSearchInput/>
-      <Week location={location} />
+      <Week locationFormat={locationFormat} weather={weather} />
     </div>
   );
 };

@@ -17,7 +17,7 @@ const UserInfo = styled.div`
   margin-right: 1rem;
 `;
 
-function Sidebar() {
+function Sidebar({ user, onLogout }) {
   return (
     <nav className="nav flex-column">
       <Link className="nav-link active" to="/">
