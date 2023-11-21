@@ -6,24 +6,61 @@ import WeekWeather from "./week-item";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useNavigate } from 'react-router-dom'; 
+import { useSelector } from 'react-redux';
+import axios from "axios";
 
-const FavorateWeek = ({ location }) => {
+const FavorateWeek = ({ location,valid }) => {
+
+  const navigate = useNavigate();
+  const auth = useSelector((state) => state.user.user?.username);
+  const isLoggedIn = auth !== undefined; 
+
   const [tempCode, setTempCode] = useState(null);
   const [weatherCode, setWeatherCode] = useState(null);
   const [cityName, setCityName] = useState(null);
+  
+  const handleSave = () => {
+    // 로그인 상태를 확인합니다.
+    if (!isLoggedIn) { // 만약 로그인하지 않았다면,
+      console.log("로그인 안함 ");
+      navigate('/login'); // 로그인 페이지로 리다이렉트합니다.
+      return; // 함수를 종료합니다.
+    }
+    console.log(auth);
+    axios.post('http://localhost:4000/saveFavoriteLocation', { location }, {
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  withCredentials: true
+})
+.then((response) => {
+  alert("Saved!");
+  console.log('Saved!', response.data);
+})
+.catch((error) => {
+  console.error('Error:', error);
+});
+
+  };
+  
 
   useEffect(() => {
     fetch("/data/temp-code.json")
       .then((response) => response.json())
       .then((data) => {
         setTempCode(data);
-        let cityName = location
-          .split(" ")[1]
-          .replace("특별시", "")
-          .replace("광역시", "")
-          .replace("시", "")
-          .replace("특별자치도", "")
-          .replace("특별자치시", "");
+
+    let cityName = location
+    ? location
+    .split(" ")[1]
+    .replace("특별시", "")
+    .replace("광역시", "")
+    .replace("시", "")
+    .replace("특별자치도", "")
+    .replace("특별자치시", "")
+    : null;   
+
         setCityName(cityName);
       });
   }, [location]);
@@ -59,7 +96,7 @@ const FavorateWeek = ({ location }) => {
     cloud: cloud[i],
   }));
 
-  const currentLocation = location.split(" ");
+  const currentLocation = location ? location.split(" ") : [];
   let locationFormat = [];
   for (let i = 0; i < 3; i++) {
     locationFormat.push(currentLocation[i]);
@@ -77,6 +114,7 @@ const FavorateWeek = ({ location }) => {
   return (
     <div className="favorate-current-week">
       <h2>{locationFormat.join(" ")}</h2>
+      {valid && <button onClick={handleSave}>저장</button>} {/* 저장 버튼 추가 */}
       <Slider {...settings}>
         {weather.map((weatherItem, i) => (
           <WeekWeather key={i} days={i + 3} {...weatherItem} />

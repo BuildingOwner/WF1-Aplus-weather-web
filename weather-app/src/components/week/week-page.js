@@ -1,10 +1,12 @@
-import FavorateWeek from "./favorate-week";
+import LocationSearchInput from "./LocationSearchInput";
 import Week from "./week";
+
+
 
 const WeekPage = ({ location }) => {
   return (
     <div style={{ minWidth: 1100, height: "100vh" }}>
-      <FavorateWeek location={location} />
+      <LocationSearchInput/>
       <Week location={location} />
     </div>
   );
