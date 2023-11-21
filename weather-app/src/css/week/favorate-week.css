@@ -2,7 +2,7 @@
   text-align: left;
 }
 
-.favorate-current-week{
+.favorate-current-week {
   margin-bottom: 5em;
   padding: 20px;
 }
@@ -11,17 +11,26 @@
   height: 150px !important;
 }
 
-.slick-slide{
+.slick-slide {
   display: flex !important;
   justify-content: center;
   align-items: center;
 }
 
-.favorate-current-week-top{
+.favorate-current-week-top {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.form-select{
-  width: fit-content !important;
+.favorate-current-week-top button {
+  padding: 5px 20px;
+  background-color: var(--green);
+  border: none;
+  font-size: 1.4em;
 }
+
+.favorate-current-week-top button:hover {
+  background-color: #999;
+}
+

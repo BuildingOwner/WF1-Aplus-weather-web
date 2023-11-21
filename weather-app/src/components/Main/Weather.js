@@ -30,7 +30,6 @@ function Weather() {
 
     try {
       const response = await axios.get(apiUrl);
-      console.log("API 응답:", response.data); // API 응답 출력
       const xmlDoc = new DOMParser().parseFromString(response.data, "text/xml");
       const items = xmlDoc.querySelectorAll("item");
 
@@ -48,7 +47,7 @@ function Weather() {
             category === "SKY"
           ) {
             newData[category] = fcstValueEl.textContent;
-            console.log(`[${location.name}] ${category}: ${newData[category]}`); // 카테고리 값 출력
+            // console.log(`[${location.name}] ${category}: ${newData[category]}`); // 카테고리 값 출력
           }
         }
       });

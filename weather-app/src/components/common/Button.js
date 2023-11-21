@@ -6,15 +6,15 @@ import { useNavigate } from "react-router-dom";
 
 const StyledButton = styled.button`
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   font-size: 1rem;
   font-weight: bold;
-  padding: 0.25rem 1rem;
+  padding: 0.25rem 1.3rem;
   color: white;
   outline: none;
   cursor: pointer;
 
-  background: ${palette.gray[8]};
+  background: var(--light-navy);
   &:hover {
     background: ${palette.gray[6]};
   }

@@ -6,49 +6,47 @@ import "slick-carousel/slick/slick-theme.css";
 import { useState, useEffect } from "react";
 import { useWeekTemp } from "../../hooks/useWeekTemp";
 import { useWeekCloud } from "../../hooks/useWeekCloud";
-
-// const favoraiteCity = ["서울", "인천", "대구", "수원", "부산"];
-
-// const FavorateWeek = ({ locationFormat, weather, tempCode, weatherCode }) => {
-//   const [favorateWeather, setFavorateWeather] = useState([]);
-import { useNavigate } from 'react-router-dom'; 
-import { useSelector } from 'react-redux';
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import axios from "axios";
 
-const FavorateWeek = ({ location,valid }) => {
-
+const FavorateWeek = ({ location, valid }) => {
   const navigate = useNavigate();
   const auth = useSelector((state) => state.user.user?.username);
-  const isLoggedIn = auth !== undefined; 
+  const isLoggedIn = auth !== undefined;
 
   const [tempCode, setTempCode] = useState(null);
   const [weatherCode, setWeatherCode] = useState(null);
   const [cityName, setCityName] = useState(null);
-  
+
   const handleSave = () => {
     // 로그인 상태를 확인합니다.
-    if (!isLoggedIn) { // 만약 로그인하지 않았다면,
+    if (!isLoggedIn) {
+      // 만약 로그인하지 않았다면,
       console.log("로그인 안함 ");
-      navigate('/login'); // 로그인 페이지로 리다이렉트합니다.
+      navigate("/login"); // 로그인 페이지로 리다이렉트합니다.
       return; // 함수를 종료합니다.
     }
     console.log(auth);
-    axios.post('http://localhost:4000/saveFavoriteLocation', { location }, {
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  withCredentials: true
-})
-.then((response) => {
-  alert("Saved!");
-  console.log('Saved!', response.data);
-})
-.catch((error) => {
-  console.error('Error:', error);
-});
-
+    axios
+      .post(
+        "http://localhost:4000/saveFavoriteLocation",
+        { location },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      )
+      .then((response) => {
+        alert("Saved!");
+        console.log("Saved!", response.data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
-  
 
   useEffect(() => {
     fetch("/data/temp-code.json")
@@ -56,15 +54,15 @@ const FavorateWeek = ({ location,valid }) => {
       .then((data) => {
         setTempCode(data);
 
-    let cityName = location
-    ? location
-    .split(" ")[1]
-    .replace("특별시", "")
-    .replace("광역시", "")
-    .replace("시", "")
-    .replace("특별자치도", "")
-    .replace("특별자치시", "")
-    : null;   
+        let cityName = location
+          ? location
+              .split(" ")[1]
+              .replace("특별시", "")
+              .replace("광역시", "")
+              .replace("시", "")
+              .replace("특별자치도", "")
+              .replace("특별자치시", "")
+          : null;
 
         setCityName(cityName);
       });
@@ -117,24 +115,11 @@ const FavorateWeek = ({ location,valid }) => {
 
   return (
     <div className="favorate-current-week">
-{/* //       <div className="favorate-current-week-top">
-//         <h2>{locationFormat.join(" ")}</h2>
-//         <select
-//           className="form-select"
-//           aria-label="Default select example"
-//           onChange={(e) => ChangeCity(e.target.value)}
-//         >
-//           <option selected>Open this select menu</option>
-//           {favoraiteCity.map((cityName, i) => (
-//             <option key={i} value={cityName}>
-//               {cityName}
-//             </option>
-//           ))}
-//         </select>
-//       </div> */}
-
-      <h2>{locationFormat.join(" ")}</h2>
-      {valid && <button onClick={handleSave}>저장</button>} {/* 저장 버튼 추가 */}
+      <div className="favorate-current-week-top">
+        <h2>{locationFormat.join(" ")}</h2>
+        {valid && <button className="btn btn-primary btn-lg" onClick={handleSave}>저장</button>}{" "}
+        {/* 저장 버튼 추가 */}
+      </div>
       <Slider {...settings}>
         {weather.map((weatherItem, i) => (
           <WeekWeather key={i} days={i + 3} {...weatherItem} />

@@ -20,6 +20,7 @@ function AppRoutes({ address }) {
   return (
     <>
       <div className="center-content">
+        <DateTime />
         <Routes>
           <Route path="/" element={<Main />}></Route>
           <Route

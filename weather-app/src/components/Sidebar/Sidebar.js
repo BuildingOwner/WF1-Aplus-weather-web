@@ -21,27 +21,31 @@ function Sidebar({ user, onLogout }) {
   return (
     <nav className="nav flex-column">
       <Link className="nav-link active" to="/">
-        <img src={home} alt="home icon" className="icon homeicon" />
+        <i className="bi bi-house"></i>
       </Link>
       <Link className="nav-link active" to="/week/">
-        <img src={cal} alt="cal icon" className="icon calicon" />
+        <i className="bi bi-calendar4-week"></i>
       </Link>
       <Link className="nav-link active" to="/airPollution/">
-        <img src={earth} alt="earth icon" className="icon earthicon" />
+        <i className="bi bi-hurricane"></i>
       </Link>
       <Link className="nav-link active" to="/news/">
-        <img src={news} alt="news icon" className="icon newsicon" />
+        <i className="bi bi-newspaper"></i>
       </Link>
       {user ? (
-            <div className="right">
-              <UserInfo>{user.username}</UserInfo>
-              <Button onClick={onLogout}><i className="bi bi-box-arrow-left"></i></Button>
-            </div>
-          ) : (
-            <div className="right">
-              <Button to="/login"><i className="bi bi-box-arrow-in-right"></i></Button>
-            </div>
-          )}
+        <div className="right">
+          <UserInfo>{user.username}</UserInfo>
+          <Button onClick={onLogout}>
+            <i className="bi bi-box-arrow-left"></i>
+          </Button>
+        </div>
+      ) : (
+        <div className="right">
+          <Button to="/login">
+            <i className="bi bi-box-arrow-in-right"></i>
+          </Button>
+        </div>
+      )}
     </nav>
   );
 }
