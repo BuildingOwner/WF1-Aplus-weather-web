@@ -20,7 +20,10 @@ function Weather() {
     const now = new Date();
     const time = [2, 5, 8, 11, 14, 17, 20, 23];
     let hour = now.getHours();
-    const baseTime = time.reverse().find((t) => t <= hour);
+    let baseTime = time.reverse().find((t) => t <= hour);
+    if (baseTime === undefined) {
+      baseTime = time[time.length - 1]; // or baseTime = 23;
+    }
     hour = baseTime.toString().padStart(2, "0");
     const year = String(now.getFullYear());
     const month = String(now.getMonth() + 1).padStart(2, "0"); // 주의: getMonth()는 0부터 시작합니다.
