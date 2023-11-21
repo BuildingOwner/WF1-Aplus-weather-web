@@ -20,7 +20,7 @@ const MainChart = () => {
   useEffect(() => {
     const fetchForecast = async (baseTime) => {
       const forecastTime = new Date();
-      forecastTime.setDate(forecastTime.getDate() - 1);
+      // forecastTime.setDate(forecastTime.getDate() - 1);
       const base_date = forecastTime
         .toISOString()
         .slice(0, 10)
@@ -64,6 +64,12 @@ const MainChart = () => {
 
     const fetchAllForecasts = async () => {
       const baseTimeList = [
+        "0100",
+        "0200",
+        "0300",
+        "0400",
+        "0500",
+        "0600",
         "0700",
         "0800",
         "0900",
