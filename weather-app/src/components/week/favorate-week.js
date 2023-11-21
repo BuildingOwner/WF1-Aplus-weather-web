@@ -107,8 +107,8 @@ const FavorateWeek = ({ location,valid }) => {
   };
 
   return (
-    <div className="favorate-current-week
-//       <div className="favorate-current-week-top">
+    <div className="favorate-current-week">
+{/* //       <div className="favorate-current-week-top">
 //         <h2>{locationFormat.join(" ")}</h2>
 //         <select
 //           className="form-select"
@@ -122,7 +122,7 @@ const FavorateWeek = ({ location,valid }) => {
 //             </option>
 //           ))}
 //         </select>
-//       </div>
+//       </div> */}
 
       <h2>{locationFormat.join(" ")}</h2>
       {valid && <button onClick={handleSave}>저장</button>} {/* 저장 버튼 추가 */}
