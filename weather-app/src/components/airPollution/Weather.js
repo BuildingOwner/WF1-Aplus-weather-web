@@ -44,7 +44,7 @@ const Weather = () => {
 
   useEffect(() => {
     if (weatherData) {
-      console.log('Weather Data:', weatherData);
+      // console.log('Weather Data:', weatherData);
     }
   }, [weatherData]);
 

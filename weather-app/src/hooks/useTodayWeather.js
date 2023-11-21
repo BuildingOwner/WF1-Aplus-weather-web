@@ -27,13 +27,6 @@ const useTodayWeather = (location) => {
   const currentTime = hours + minute;
   const formattedDate = `${year}${month}${day}`;
 
-  // let latitude = 0;
-  // let longitude = 0;
-  // navigator.geolocation.getCurrentPosition(function (position) {
-  //   latitude = position.coords.latitude;
-  //   longitude = position.coords.longitude;
-  // });
-
   const url =
     "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst"; /*URL*/
   let queryParams =
@@ -134,7 +127,6 @@ const useTodayWeather = (location) => {
     const fetchData = async () => {
       try {
         const result = await axios.get(url + queryParams);
-        console.log(result);
         const resultMinTemp = await axios.get(url + queryParamsMinTemp);
         const resultMaxTemp = await axios.get(url + queryParamsMaxTemp);
 
