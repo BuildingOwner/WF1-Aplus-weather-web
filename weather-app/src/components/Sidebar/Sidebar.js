@@ -9,6 +9,13 @@ import earth from "../../Images/earth.png";
 import earth2 from "../../Images/earth2.gif";
 import news from "../../Images/news.png";
 import news2 from "../../Images/news2.gif";
+import Button from "../common/Button";
+import { styled } from "styled-components";
+
+const UserInfo = styled.div`
+  font-weight: 800,
+  margin-right: 1rem;
+`;
 
 function Sidebar() {
   return (
@@ -25,6 +32,16 @@ function Sidebar() {
       <Link className="nav-link active" to="/news/">
         <img src={news} alt="news icon" className="icon newsicon" />
       </Link>
+      {user ? (
+            <div className="right">
+              <UserInfo>{user.username}</UserInfo>
+              <Button onClick={onLogout}><i className="bi bi-box-arrow-left"></i></Button>
+            </div>
+          ) : (
+            <div className="right">
+              <Button to="/login"><i className="bi bi-box-arrow-in-right"></i></Button>
+            </div>
+          )}
     </nav>
   );
 }
