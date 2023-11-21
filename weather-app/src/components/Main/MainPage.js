@@ -50,7 +50,7 @@ function Main() {
                     />
                   </div>
                   <div className="weather-bottom">
-                    <p>기온: {data[city].TMP - 2}°C</p>
+                    <p>기온: {data[city].TMP}°C</p>
                   </div>
                 </div>
               ))}

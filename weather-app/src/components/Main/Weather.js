@@ -4,6 +4,7 @@ import serviceKey from "../../private/serviceKey";
 
 function Weather() {
   const [data, setData] = useState({});
+  const [firstApiResponse, setFirstApiResponse] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const locations = [
@@ -17,14 +18,15 @@ function Weather() {
   const fetchData = async (location) => {
     setLoading(true);
     const now = new Date();
-    if (now.getMinutes() < 30) {
-      now.setHours(now.getHours() - 1);
-    }
+    const time = [2, 5, 8, 11, 14, 17, 20, 23];
+    let hour = now.getHours();
+    const baseTime = time.reverse().find((t) => t <= hour);
+    hour = baseTime.toString().padStart(2, "0");
     const year = String(now.getFullYear());
     const month = String(now.getMonth() + 1).padStart(2, "0"); // 주의: getMonth()는 0부터 시작합니다.
     const day = String(now.getDate()).padStart(2, "0");
-    const hour = String(now.getHours() - 2).padStart(2, "0");
-    const apiUrl = `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${serviceKey}&numOfRows=1000&pageNo=1&base_date=${year}${month}${day}&base_time=${hour}30&nx=${location.nx}&ny=${location.ny}`;
+    // const hour = String(now.getHours()).padStart(2, "0");
+    const apiUrl = `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${serviceKey}&numOfRows=50&pageNo=1&base_date=${year}${month}${day}&base_time=${hour}00&nx=${location.nx}&ny=${location.ny}`;
 
     try {
       const response = await axios.get(apiUrl);
