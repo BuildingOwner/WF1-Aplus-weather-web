@@ -5,10 +5,10 @@ React를 이용한 웹페이지 구현
 
 <h3>✋팀원 소개</h3>
 
-* 최재완 (팀장) - 주간 날씨 구현, 
+* 최재완 (팀장) - 주간 날씨 구현, css, 확장프로그램 모듈 개발, 라우팅 
 * 김민상 (팀원) - Spring / React 인증관련 구현 , 재난 및 날씨 뉴스페이지 구현, 즐겨찾기 CR 구현
 * 장주찬 (팀원) - 통합 대기 페이지 구현, 모달 및 차트 구현, CSS 구현
-* 이영재 (팀원) - 메인페이지 구현, CSS 구현, 
+* 이영재 (팀원) - 메인페이지 구현, 차트 구현, CSS 구현
 
 ## 📄시작 가이드
 __Installation__
@@ -44,7 +44,14 @@ npm start
 * 사용자가 원하는 도시를 검색해 최대, 최저 기온과 강수확률, 하늘 상태 등의 정보를 확인할 수 있습니다. 로그인을 진행하여 저장을 할 경우 웹페이지 재방문 시 검색 없이 저장된 도시의 정보를 확인할 수 있습니다. 이를 통해 사용자는 자신이 관심 있는 도시의 날씨 변화를 쉽게 파악하고, 그에 따른 계획을 세울 수 있습니다.
 
 ### 대기 오염 정보 제공
-* 전국의 대기 오염 실황 정보와 사용자가 거주하는 지역의 미세먼지, 초미세먼지, 황사, 오존 등의 데이터를 다양한 차트 형식으로 표현해 페이지에 제공합니다. 
+* 전국의 대기 오염 실황 정보와 사용자가 거주하는 지역의 미세먼지, 초미세먼지, 황사, 오존 등의 데이터를 다양한 차트 형식으로 표현해 페이지에 제공합니다.
+
+### 실시간 속보 및 뉴스 제공
+* 각 지역별 재난 특보에 대한 정보를 제공합니다. 또한 유튜브 API를 이용해 일기예보가 보도된 지상파 유튜브 링크를 불러와 날씨에 대한 정보를 얻을 수 있으며 
+
+### 확장 프로그램
+* API를 이용해 얻어온 실시간 날씨 데이터 및 주간 날씨 데이터를 크롬 확장 프로그램을 이용해 크롬 내 어느 웹페이지에서도 확인할 수 있습니다. 현재 시간을 기준으로 가장 최근에 보도된 인터넷 기사를 불러와 페이지 상단에 위치시켜 예보에 대한 정보를 제공합니다.
+
 
 ## 구조 트리
 ```
@@ -175,8 +182,11 @@ npm start
 
 [국민재난안전포털 재난문자 서비스](https://www.safekorea.go.kr/idsiSFK/neo/sfk/cs/sfc/dis/disasterMsgList.jsp?menuSeq=679)
 
-[google places search 서비스](https://console.cloud.google.com/marketplace/product/google/places-backend.googleapis.com?project=black-acronym-404314)
+[google places search 서비스](https://console.cloud.google.com/marketplace/product/google/geocoding-backend.googleapis.com?project=stt-test-project-396707)
 
 ## ⌨주요 적용 기술 및 특이 사항
 * __개발 도구__ : Visual Studio Code, Spring Boot, React
 * __개발 언어__ : HTML5, CSS3, JavaScript, Node.js
+
+## 💪GitHub Link
+[WF1-Aplus-weather-web](https://github.com/BuildingOwner/WF1-Aplus-weather-web)
