@@ -10,9 +10,19 @@ const cloudIcon = {
 const WeekItem = ({ days, temp, rainRate, cloud }) => {
   const date = ["일", "월", "화", "수", "목", "금", "토"];
   const now = new Date();
-  const month = String(now.getMonth() + 1).padStart(2, "0");
-  let day = String(now.getDate() + days).padStart(2, "0");
-  let dayName = date[(now.getDay() + days) % 7];
+  const futureDate = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate() + days
+  );
+  let month = String(futureDate.getMonth() + 1).padStart(2, "0");
+  let day = String(futureDate.getDate()).padStart(2, "0");
+  let dayName = date[futureDate.getDay()];
+
+  if (futureDate.getMonth() !== now.getMonth()) {
+    month = String(futureDate.getMonth() + 1).padStart(2, "0");
+    day = String(futureDate.getDate()).padStart(2, "0");
+  }
   const hour = now.getHours();
   if (hour < 6) {
     day = String(now.getDate() + days - 1).padStart(2, "0");
