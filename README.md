@@ -169,7 +169,13 @@ npm start
 
 [기상청_단기예보 ((구)_동네예보) 조회서비스](https://www.data.go.kr/iim/api/selectAPIAcountView.do/)
 
+[네이버 뉴스 검색 서비스](https://developers.naver.com/docs/serviceapi/search/news/news.md#%EB%89%B4%EC%8A%A4)
 
+[유튜브 데이터 서비스](https://developers.google.com/youtube/v3?hl=ko)
+
+[국민재난안전포털 재난문자 서비스](https://www.safekorea.go.kr/idsiSFK/neo/sfk/cs/sfc/dis/disasterMsgList.jsp?menuSeq=679)
+
+[google places search 서비스](https://console.cloud.google.com/marketplace/product/google/places-backend.googleapis.com?project=black-acronym-404314)
 
 ## ⌨주요 적용 기술 및 특이 사항
 * __개발 도구__ : Visual Studio Code, Spring Boot, React
