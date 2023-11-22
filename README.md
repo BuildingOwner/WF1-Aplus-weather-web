@@ -1,5 +1,5 @@
 <h1>WebFrame Work Project</h1>
-React를 이용한 웹페이지 구현
+React를 이용한 날씨 웹페이지 구현
 
 <h2>Team.A+</h2>
 
@@ -189,4 +189,6 @@ npm start
 * __개발 언어__ : HTML5, CSS3, JavaScript, Node.js
 
 ## 💪GitHub Link
+```
 [WF1-Aplus-weather-web](https://github.com/BuildingOwner/WF1-Aplus-weather-web)
+```
