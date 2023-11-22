@@ -1,4 +1,4 @@
-<h1>웹프레임워크1 기말 프로젝트</h1>
+<h1>WebFrame Work Project</h1>
 React를 이용한 웹페이지 구현
 
 <h2>Team.A+</h2>
