@@ -46,6 +46,154 @@ npm start
 ### 대기 오염 정보 제공
 * 전국의 대기 오염 실황 정보와 사용자가 거주하는 지역의 미세먼지, 초미세먼지, 황사, 오존 등의 데이터를 다양한 차트 형식으로 표현해 페이지에 제공합니다. 
 
+## 구조 트리
+```
+📦src
+ ┣ 📂components
+ ┃ ┣ 📂airPollution
+ ┃ ┃ ┣ 📜AirMain.js
+ ┃ ┃ ┣ 📜AirQualityModal.js
+ ┃ ┃ ┣ 📜api2.js
+ ┃ ┃ ┣ 📜Chart.js
+ ┃ ┃ ┣ 📜Chart2.js
+ ┃ ┃ ┣ 📜cities.js
+ ┃ ┃ ┣ 📜FineDustModal.js
+ ┃ ┃ ┣ 📜Forecast.js
+ ┃ ┃ ┣ 📜OzoneModal.js
+ ┃ ┃ ┣ 📜SulfurModal.js
+ ┃ ┃ ┣ 📜UltraFineDustModal.js
+ ┃ ┃ ┗ 📜Weather.js
+ ┃ ┣ 📂auth
+ ┃ ┃ ┣ 📜AuthForm.js
+ ┃ ┃ ┣ 📜AuthTemplate.js
+ ┃ ┃ ┣ 📜LoginPage.js
+ ┃ ┃ ┗ 📜RegisterPage.js
+ ┃ ┣ 📂common
+ ┃ ┃ ┗ 📜Button.js
+ ┃ ┣ 📂exponsion
+ ┃ ┃ ┣ 📜ex-current.js
+ ┃ ┃ ┣ 📜ex-dust-item.js
+ ┃ ┃ ┣ 📜ex-dust.js
+ ┃ ┃ ┣ 📜ex-today-item.js
+ ┃ ┃ ┣ 📜ex-today.js
+ ┃ ┃ ┣ 📜ex-week-item.js
+ ┃ ┃ ┣ 📜ex-week.js
+ ┃ ┃ ┗ 📜expension.js
+ ┃ ┣ 📂Main
+ ┃ ┃ ┣ 📜DateTime.js
+ ┃ ┃ ┣ 📜MainChart.js
+ ┃ ┃ ┣ 📜MainPage.js
+ ┃ ┃ ┗ 📜Weather.js
+ ┃ ┣ 📂news
+ ┃ ┃ ┣ 📜DisasterMsgList.js
+ ┃ ┃ ┣ 📜NewsItem.js
+ ┃ ┃ ┣ 📜NewsList.js
+ ┃ ┃ ┣ 📜NewsMain.js
+ ┃ ┃ ┗ 📜YoutubeVideo.js
+ ┃ ┣ 📂Sidebar
+ ┃ ┃ ┗ 📜Sidebar.js
+ ┃ ┣ 📂week
+ ┃ ┃ ┣ 📜favorate-week.js
+ ┃ ┃ ┣ 📜LocationSearchInput.js
+ ┃ ┃ ┣ 📜week-item.js
+ ┃ ┃ ┣ 📜week-page.js
+ ┃ ┃ ┗ 📜week.js
+ ┃ ┣ 📜article.js
+ ┃ ┗ 📜container.js
+ ┣ 📂containers
+ ┃ ┣ 📂auth
+ ┃ ┃ ┣ 📜LoginForm.js
+ ┃ ┃ ┗ 📜RegisterForm.js
+ ┃ ┗ 📂common
+ ┃ ┃ ┗ 📜HeaderContainer.js
+ ┣ 📂css
+ ┃ ┣ 📂airPollution
+ ┃ ┃ ┣ 📜airMain.css
+ ┃ ┃ ┣ 📜Forecast.css
+ ┃ ┃ ┣ 📜Modal.css
+ ┃ ┃ ┣ 📜Pollution.css
+ ┃ ┃ ┗ 📜Weather.css
+ ┃ ┣ 📂expension
+ ┃ ┃ ┣ 📜ex-today.css
+ ┃ ┃ ┣ 📜ex-week-item.css
+ ┃ ┃ ┣ 📜ex-week.css
+ ┃ ┃ ┣ 📜expension.css
+ ┃ ┃ ┗ 📜expention-dust.css
+ ┃ ┣ 📂header
+ ┃ ┃ ┗ 📜DateTime.css
+ ┃ ┣ 📂Main
+ ┃ ┃ ┗ 📜Weather.css
+ ┃ ┣ 📂news
+ ┃ ┃ ┣ 📜Animation.css
+ ┃ ┃ ┣ 📜NewsItem.css
+ ┃ ┃ ┣ 📜NewsList.css
+ ┃ ┃ ┗ 📜NewsMain.css
+ ┃ ┣ 📂Sidebar
+ ┃ ┃ ┗ 📜Sidebar.css
+ ┃ ┣ 📂week
+ ┃ ┃ ┣ 📜favorate-week.css
+ ┃ ┃ ┣ 📜location-search-input.css
+ ┃ ┃ ┣ 📜weather-item.css
+ ┃ ┃ ┗ 📜week.css
+ ┃ ┣ 📜App.css
+ ┃ ┣ 📜index.css
+ ┃ ┗ 📜reset.css
+ ┣ 📂Fonts
+ ┃ ┣ 📜EASTARJET-DemiLight.ttf
+ ┃ ┣ 📜EASTARJET-Heavy.ttf
+ ┃ ┣ 📜EASTARJET-Medium.ttf
+ ┃ ┗ 📜font.css
+ ┣ 📂hooks
+ ┃ ┣ 📜useCurrentDust.js
+ ┃ ┣ 📜useCurrentLocation.js
+ ┃ ┣ 📜useTodayWeather.js
+ ┃ ┣ 📜useWeekCloud.js
+ ┃ ┗ 📜useWeekTemp.js
+ ┣ 📂Images
+ ┃ ┣ 📜cal.png
+ ┃ ┣ 📜cal2.gif
+ ┃ ┣ 📜earth.png
+ ┃ ┣ 📜earth2.gif
+ ┃ ┣ 📜home.png
+ ┃ ┣ 📜home2.gif
+ ┃ ┣ 📜news.png
+ ┃ ┣ 📜news2.gif
+ ┃ ┗ 📜sunny.gif
+ ┣ 📂lib
+ ┃ ┣ 📂api
+ ┃ ┃ ┣ 📜auth.js
+ ┃ ┃ ┗ 📜client.js
+ ┃ ┣ 📂styles
+ ┃ ┃ ┗ 📜palette.js
+ ┃ ┗ 📜createRequestSaga.js
+ ┣ 📂modules
+ ┃ ┣ 📜auth.js
+ ┃ ┣ 📜index.js
+ ┃ ┣ 📜loading.js
+ ┃ ┗ 📜user.js
+ ┣ 📂private
+ ┃ ┣ 📜DisasterMsgKey.js
+ ┃ ┣ 📜google-map-key.js
+ ┃ ┣ 📜key.js
+ ┃ ┣ 📜NaverId.js
+ ┃ ┣ 📜NaverSecretKey.js
+ ┃ ┣ 📜PlacesKey.js
+ ┃ ┣ 📜serviceKey.js
+ ┃ ┗ 📜YoutubeKey.js
+ ┣ 📜App.js
+ ┣ 📜index.js
+ ┗ 📜setupProxy.js
+```
+## 사용 API
+[기상청_중기예보 조회서비스](https://www.data.go.kr/iim/api/selectAPIAcountView.do)
+
+[한국환경공단_에어코리아_대기오염통계 현황](https://www.data.go.kr/iim/api/selectAPIAcountView.do)
+
+[한국환경공단_에어코리아_대기오염정보](https://www.data.go.kr/iim/api/selectAPIAcountView.do)
+
+[기상청_단기예보 ((구)_동네예보) 조회서비스](https://www.data.go.kr/iim/api/selectAPIAcountView.do/)
+
+
 
 ## ⌨주요 적용 기술 및 특이 사항
 * __개발 도구__ : Visual Studio Code, Spring Boot, React
