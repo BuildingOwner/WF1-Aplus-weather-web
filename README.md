@@ -138,27 +138,12 @@ npm start
  ┃ ┣ 📜App.css
  ┃ ┣ 📜index.css
  ┃ ┗ 📜reset.css
- ┣ 📂Fonts
- ┃ ┣ 📜EASTARJET-DemiLight.ttf
- ┃ ┣ 📜EASTARJET-Heavy.ttf
- ┃ ┣ 📜EASTARJET-Medium.ttf
- ┃ ┗ 📜font.css
  ┣ 📂hooks
  ┃ ┣ 📜useCurrentDust.js
  ┃ ┣ 📜useCurrentLocation.js
  ┃ ┣ 📜useTodayWeather.js
  ┃ ┣ 📜useWeekCloud.js
  ┃ ┗ 📜useWeekTemp.js
- ┣ 📂Images
- ┃ ┣ 📜cal.png
- ┃ ┣ 📜cal2.gif
- ┃ ┣ 📜earth.png
- ┃ ┣ 📜earth2.gif
- ┃ ┣ 📜home.png
- ┃ ┣ 📜home2.gif
- ┃ ┣ 📜news.png
- ┃ ┣ 📜news2.gif
- ┃ ┗ 📜sunny.gif
  ┣ 📂lib
  ┃ ┣ 📂api
  ┃ ┃ ┣ 📜auth.js
@@ -171,15 +156,6 @@ npm start
  ┃ ┣ 📜index.js
  ┃ ┣ 📜loading.js
  ┃ ┗ 📜user.js
- ┣ 📂private
- ┃ ┣ 📜DisasterMsgKey.js
- ┃ ┣ 📜google-map-key.js
- ┃ ┣ 📜key.js
- ┃ ┣ 📜NaverId.js
- ┃ ┣ 📜NaverSecretKey.js
- ┃ ┣ 📜PlacesKey.js
- ┃ ┣ 📜serviceKey.js
- ┃ ┗ 📜YoutubeKey.js
  ┣ 📜App.js
  ┣ 📜index.js
  ┗ 📜setupProxy.js
