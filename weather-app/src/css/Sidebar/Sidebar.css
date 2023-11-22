@@ -73,7 +73,6 @@
 
 .right {
   margin-top: 50px;
-  height: 75px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
