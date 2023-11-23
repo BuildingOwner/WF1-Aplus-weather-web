@@ -53,6 +53,60 @@ npm start
 * API를 이용해 얻어온 실시간 날씨 데이터 및 주간 날씨 데이터를 크롬 확장 프로그램을 이용해 크롬 내 어느 웹페이지에서도 확인할 수 있습니다. 현재 시간을 기준으로 가장 최근에 보도된 인터넷 기사를 불러와 페이지 상단에 위치시켜 예보에 대한 정보를 제공합니다.
 
 
+## 개발 페이지
+* __메인 페이지__
+<div>
+<img src="https://github.com/BuildingOwner/WF1-Aplus-weather-web/assets/112616256/e6f6365b-e98e-4fe8-b522-ec1737d48eab" width="800" height="450">
+<p>
+  <strong>실시간 날씨 정보 제공</strong>
+  <br> 
+  <strong>시간별 기온 제공</strong>
+  <br> 
+  <strong>기온 외 다양한 정보 제공</strong>
+  </p>
+</div>
+
+* __주간 예보 페이지__
+<div>
+ <img src="https://github.com/BuildingOwner/WF1-Aplus-weather-web/assets/112616256/66b5dce1-ca09-4273-8420-484a4f2e31d0" width="800" height="450">
+ <p>
+  <strong>주간 예보 제공</strong>
+  <br> 
+  <strong>도시 검색 기능</strong>
+  <br> 
+  <strong>즐겨찾기 기능</strong>
+  </p>
+</div>
+
+* __대기 오염 페이지__
+<div>
+ <img src="https://github.com/BuildingOwner/WF1-Aplus-weather-web/assets/112616256/578baca2-76b9-4b2f-84c5-4a9478504710" width="800" height="450">
+ <p>
+  <strong>전국 대기 오염 정보 제공</strong>
+  <br> 
+  <strong>현재 위치 오염 정보 제공</strong>
+  <br> 
+  <strong>시간대 및 주간별 정보 제공</strong>
+  </p>
+</div>
+
+* __실시간 뉴스 페이지__
+<div>
+ <img src="https://github.com/BuildingOwner/WF1-Aplus-weather-web/assets/112616256/b2e487d7-a7c4-4f82-8363-0ca3de9229d2" width="800" height="450">
+ <p>
+  <strong>재난 특보 소식 제공</strong>
+  <br> 
+  <strong>일기예보 유튜브 제공</strong>
+  <br> 
+  <strong>다양한 뉴스 소식 정보 제공</strong>
+  </p>
+</div>
+
+* __확장 프로그램__
+<div>
+ <img src="https://github.com/BuildingOwner/WF1-Aplus-weather-web/assets/112616256/bae6c054-d187-4f33-9366-7015320751a5" width="200" height="450">
+</div>
+
 ## 구조 트리
 ```
 📦src
