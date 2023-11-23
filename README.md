@@ -238,6 +238,8 @@ npm start
 
 [google places search 서비스](https://console.cloud.google.com/marketplace/product/google/geocoding-backend.googleapis.com?project=stt-test-project-396707)
 
+[Google Geocoding 서비스](https://developers.google.com/maps/documentation/geocoding/start?hl=ko)
+
 ## ⌨주요 적용 기술 및 특이 사항
 * __개발 도구__ : Visual Studio Code, Spring Boot, React
 * __개발 언어__ : HTML5, CSS3, JavaScript, Node.js
