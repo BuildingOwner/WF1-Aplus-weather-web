@@ -13,6 +13,9 @@ React를 이용한 날씨 웹페이지 구현
 ## 📄시작 가이드
 __Installation__
 ```
+cd weather-app
+```
+```
 npm install
 ```
 
