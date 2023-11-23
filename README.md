@@ -69,7 +69,7 @@ npm start
 
 * __주간 예보 페이지__
 <div>
- <img src="https://github.com/BuildingOwner/WF1-Aplus-weather-web/assets/112616256/66b5dce1-ca09-4273-8420-484a4f2e31d0" width="800" height="450">
+ <img src="https://github.com/BuildingOwner/WF1-Aplus-weather-web/assets/112616256/b2e487d7-a7c4-4f82-8363-0ca3de9229d2" width="800" height="450">
  <p>
   <strong>주간 예보 제공</strong>
   <br> 
@@ -93,7 +93,7 @@ npm start
 
 * __실시간 뉴스 페이지__
 <div>
- <img src="https://github.com/BuildingOwner/WF1-Aplus-weather-web/assets/112616256/b2e487d7-a7c4-4f82-8363-0ca3de9229d2" width="800" height="450">
+ <img src="https://github.com/BuildingOwner/WF1-Aplus-weather-web/assets/112616256/66b5dce1-ca09-4273-8420-484a4f2e31d0" width="800" height="450">
  <p>
   <strong>재난 특보 소식 제공</strong>
   <br> 
